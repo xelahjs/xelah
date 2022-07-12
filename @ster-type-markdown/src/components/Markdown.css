@@ -1,0 +1,40 @@
+.markdown .document {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.markdown .section {
+  width: 100%;
+}
+
+.markdown .heading {
+  border-bottom: gray 1px solid;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.markdown .heading .content {
+  display: inline-block;
+  border: 1px solid gray;
+  background-color: lightgray;
+  border-radius: 0.2em;
+  padding: 0.1em 0.2em 0.01em 0.2em;
+}
+
+.markdown .block {
+  border-bottom: gray 1px solid;
+  padding: 0.05em 0.2em;
+}
+
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
+  display: inline-block;
+  width: 100%;
+  margin: 0em;
+}
+
+.markdown ul, .markdown ol, .markdown li {
+  display: inline;
+}
+
+.markdown ul li::before {
+  content: " • ";
+}
