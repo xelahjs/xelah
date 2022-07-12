@@ -11,7 +11,7 @@ module.exports = {
     const name = path.basename(componentPath, '.js');
     return `import { ${name} } from '${packageName}';`;
   },
-  title: `${name} v${version}`,
+  title: `${packageName} v${version}`,
   ribbon: {
     url: repository.url,
     text: 'View on GitHub',
