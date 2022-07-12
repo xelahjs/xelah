@@ -1,6 +1,6 @@
-# STE-React: Simple Text Editor for React
+# STER: Simple Text Editor for React
 
-STE is a collection of libraries that build on top of each other. 
+STER is a collection of libraries that build on top of each other. 
 
 The primary implementation will be focused on ste-perf-html but architected to be useful for other projects needing to edit strings parsable into sections and blocks.
 
