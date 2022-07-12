@@ -18,8 +18,8 @@
   content: attr(id)':\0000a0';
   font-weight: 900;
   text-decoration: none;
-  text-decoration:none;
-  display:inline-block;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .perf .section {
@@ -30,23 +30,28 @@
   text-decoration: underline;
 }
 
-.perf .title, .perf .introduction {
+.perf .title,
+.perf .introduction {
   text-align: center;
 }
 
-.perf .title, .perf .block.mt, .perf .graft.title,
+.perf .title,
+.perf .block.mt,
+.perf .graft.title,
 .perf div[sequencetype="title"] .block {
   font-weight: 700;
   font-size: 2em;
   margin: 0.5em 0;
 }
 
-.perf .introduction, .perf div[sequencetype="introduction"] .block {
+.perf .introduction,
+.perf div[sequencetype="introduction"] .block {
   font-size: 1.5em;
   margin: 0.5em 0em;
 }
 
-.perf .heading, .perf div[sequencetype="heading"] .block {
+.perf .heading,
+.perf div[sequencetype="heading"] .block {
   font-size: 1.2em;
   font-weight: 700;
   text-align: center;
@@ -74,8 +79,8 @@
   color: blue;
 }
 
-.perf .graft:before{
-  content: ' 'attr(data-previewText);
+.perf .graft:before {
+  content: ' ' attr(data-previewText);
 }
 
 .perf .chapter {
@@ -96,7 +101,10 @@
   vertical-align: super;
 }
 
-.perf .q, .perf .q2, .perf .q3, .perf .q4 {
+.perf .q,
+.perf .q2,
+.perf .q3,
+.perf .q4 {
   font-style: italic;
 }
 
@@ -120,7 +128,7 @@ span.verses:after {
   content: ' ';
 }
 
-.perf .preview span.graft:before{
+.perf .preview span.graft:before {
   content: ' ✝';
 }
 

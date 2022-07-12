@@ -7,27 +7,27 @@ import { embedPreviewTextInGrafts } from "../core/nestPerf";
 import { getTypeFromSequenceHtml } from "../core/getType";
 import Block from "./Block";
 
-import SequenceHtmlEditor from "./SequenceHtmlEditor";
+import HtmlSequenceEditor from "./HtmlSequenceEditor";
 
-import './PerfHtmlEditor.css';
+import './HtmlPerfEditor.css';
 
-export default function PerfHtmlEditor({
+export default function HtmlPerfEditor({
   sequenceId: __sequenceId,
   addSequenceId,
   options,
-  perfHtml,
-  onPerfHtml,
+  htmlPerf,
+  onHtmlPerf,
   components,
   ..._props
 }) {
   const [sectionIndices, setSectionIndices] = useState({});
-  const sequenceId = __sequenceId || perfHtml.mainSequenceId;
+  const sequenceId = __sequenceId || htmlPerf.mainSequenceId;
 
-  const sequenceHtml = useDeepCompareMemo(() => (
-    embedPreviewTextInGrafts({ perfHtml, sequenceId })
-  ), [perfHtml, sequenceId]);
+  const htmlSequence = useDeepCompareMemo(() => (
+    embedPreviewTextInGrafts({ htmlPerf, sequenceId })
+  ), [htmlPerf, sequenceId]);
 
-  const sequenceType = useMemo(() => getTypeFromSequenceHtml({ sequenceHtml }), [sequenceHtml]);
+  const sequenceType = useMemo(() => getTypeFromSequenceHtml({ htmlSequence }), [htmlSequence]);
 
   const sectionIndex = useDeepCompareMemo(() => (
     sectionIndices[sequenceId] || 0
@@ -50,15 +50,15 @@ export default function PerfHtmlEditor({
   }, [addSequenceId]);
 
   const onContentHandler = useCallback((_content) => {
-    if (sequenceHtml !== _content) {
-      onPerfHtml({ sequenceId, sequenceHtml: _content });
+    if (htmlSequence !== _content) {
+      onHtmlPerf({ sequenceId, sequenceHtml: _content });
     };
-  }, [onPerfHtml, sequenceHtml, sequenceId]);
+  }, [onHtmlPerf, htmlSequence, sequenceId]);
 
 
   const props = {
-    content: sequenceHtml,
-    onContent: onContentHandler,
+    htmlSequence,
+    onHtmlSequence: onContentHandler,
     components: {
       ...components,
       sectionHeading: (props) => components.sectionHeading({ type: sequenceType, ...props }),
@@ -77,17 +77,17 @@ export default function PerfHtmlEditor({
   console.log(options);
 
   return (
-    <div className="PerfHtmlEditor" key={sequenceId}>
-      <SequenceHtmlEditor key={sequenceId} {...props} />
+    <div className="HtmlPerfEditor" key={sequenceId}>
+      <HtmlSequenceEditor key={sequenceId} {...props} />
     </div>
   );
 };
 
-PerfHtmlEditor.propTypes = {
+HtmlPerfEditor.propTypes = {
   /** Text to be edited whether file, section or block */
-  perfHtml: PropTypes.string.isRequired,
+  htmlPerf: PropTypes.object.isRequired,
   /** Function triggered on edit */
-  onPerfHtml: PropTypes.func,
+  onHtmlPerf: PropTypes.func,
   /** Options for the editor */
   options: PropTypes.shape({
     /** Parse content by sections using sectionParser */
@@ -141,7 +141,7 @@ PerfHtmlEditor.propTypes = {
   verbose: PropTypes.bool,
 };
 
-PerfHtmlEditor.defaultProps = {
+HtmlPerfEditor.defaultProps = {
   sequenceId: undefined,
 };
 

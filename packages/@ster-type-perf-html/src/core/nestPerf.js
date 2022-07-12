@@ -15,16 +15,16 @@ export const embedPreviewInGrafts = ({ graftHtml, perfHtml }) => {
   return _html;
 };
 
-export const embedPreviewTextInGrafts = ({ perfHtml, sequenceId }) => {
+export const embedPreviewTextInGrafts = ({ htmlPerf, sequenceId }) => {
   const parser = new DOMParser();
-  const html = perfHtml.sequencesHtml[sequenceId];
+  const html = htmlPerf.sequencesHtml[sequenceId];
   // parse the full content by divs for rendering
   const dom = parser.parseFromString(html, "text/html");
   const grafts = [...dom.getElementsByClassName("graft")];
 
   grafts.forEach((graft) => {
     const { target } = graft.dataset;
-    const targetHtml = perfHtml.sequencesHtml[target];
+    const targetHtml = htmlPerf.sequencesHtml[target];
     const div = document.createElement("div");
     div.innerHTML = targetHtml;
     // parse the full content by divs for rendering

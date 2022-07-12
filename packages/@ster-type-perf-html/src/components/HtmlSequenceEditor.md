@@ -1,4 +1,4 @@
-# SequenceHtmlEditor
+# HtmlSequenceEditor
 
 PerfEditor is and editor for the PERF (Proskomma Editor Ready Format) based on the EditableContent by overriding its default props. 
 
@@ -16,12 +16,12 @@ If you would like to contribute an example implementation using TailwindCSS plea
 This example shows the bare minimum use case and uses default components to render the editor.
 
 ```js
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 
-import {perfHtml} from '../data/perf-html.js';
+import { htmlSequence as _htmlSequence } from '../data/htmlSequence.js';
 
 function Component () {
-  const [content, setContent] = useState(perfHtml);
+  const [htmlSequence, setHtmlPerf] = useState(_htmlSequence);
   const [sectionIndex, setSectionIndex] = useState(0);
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
@@ -42,14 +42,14 @@ function Component () {
     // console.log(element.dataset.target);
   };
 
-  const onContent = (_content) => {
+  const onHtmlSequence = (_content) => {
     console.log('content changed!');
-    setContent(_content);
+    setHtmlPerf(_content);
   };
 
   const props = {
-    content,
-    onContent,
+    htmlSequence,
+    onHtmlSequence,
     options: {
       sectionable,
       blockable,
@@ -76,7 +76,7 @@ function Component () {
   return (
     <div key="1">
       {buttons}
-      <SequenceHtmlEditor key="1" {...props} />
+      <HtmlSequenceEditor key="1" {...props} />
       {buttons}
     </div>
   );

@@ -1,5 +1,5 @@
 /* eslint-disable no-irregular-whitespace */
-export const perfHtml = `<div id="sequence" data-sequenceid="ZWFjOWMxNjEt" data-sequencetype="main" class="main main_sequence">
+export const htmlSequence = `<div id="sequence" data-sequenceid="ZWFjOWMxNjEt" data-sequencetype="main" class="main main_sequence">
   <div id="content">
     <div data-type="graft" class="graft title" data-subtype="title" data-target="MWJjZTNkOTYt" data-nblocks="1" data-previewtext="Psalms"></div>
     <div data-type="graft" class="graft heading " data-subtype="heading" data-target="ZDM1NjQwOTct" data-nblocks="1" data-previewtext="Book One"></div>

@@ -12,7 +12,7 @@ A core library that others extend to edit their respective file formats.
 
 ### @ster/type-perf-html
 
-An implementation of STE for editing PerfHtml, a block based format based on Epitelete/PERF.
+An implementation of STE for editing HtmlPerf, a block based format based on Epitelete/PERF.
 
 ## Pending packages
 

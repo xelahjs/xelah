@@ -1,6 +1,6 @@
-# PerfHtmlEditor
+# HtmlPerfEditor
 
-The PerfHtml Editor expects input of a json structure that holds Html representations of multiple Perf sequences.
+The HtmlPerf Editor expects input of a json structure that holds Html representations of multiple Perf sequences.
 
 It navigates the Sequences and initiates a SequenceHtml editor for the main sequenceId.
 
@@ -9,15 +9,15 @@ import { useState, useEffect } from 'react';
 
 import { SectionHeading } from '@ster/type-perf-html';
 
-import _perfHtml from '../data/jonah.perf.html.json';
+import _htmlPerf from '../data/jonah.perf.html.json';
 
 const components = {
   sectionHeading: SectionHeading,
 }
 
 function Component () {
-  const [perfHtml, setPerfHtml] = useState(_perfHtml);
-  const [sequenceIds, setSequenceIds] = useState([perfHtml.mainSequenceId]);
+  const [htmlPerf, setHtmlPerf] = useState(_htmlPerf);
+  const [sequenceIds, setSequenceIds] = useState([htmlPerf.mainSequenceId]);
   const [sectionIndex, setSectionIndex] = useState(0);
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
@@ -49,8 +49,8 @@ function Component () {
   const props = {
     sequenceId: sequenceIds[0],
     addSequenceId,
-    perfHtml,
-    onPerfHtml: setPerfHtml,
+    htmlPerf,
+    onHtmlPerf: setHtmlPerf,
     components,
     options: {
       sectionable,
@@ -78,7 +78,7 @@ function Component () {
   return (
     <div key="1">
       {buttons}
-      <PerfHtmlEditor key="1" {...props} />
+      <HtmlPerfEditor key="1" {...props} />
       {buttons}
     </div>
   );

@@ -1,9 +1,9 @@
-import PerfHtmlEditor from "./components/PerfHtmlEditor";
-import SequenceHtmlEditor from "./components/SequenceHtmlEditor";
+import HtmlPerfEditor from "./components/HtmlPerfEditor";
+import HtmlSequenceEditor from "./components/HtmlSequenceEditor";
 import SectionHeading from "./components/SectionHeading";
 
 export {
-  PerfHtmlEditor,
-  SequenceHtmlEditor,
+  HtmlPerfEditor,
+  HtmlSequenceEditor,
   SectionHeading,
 };

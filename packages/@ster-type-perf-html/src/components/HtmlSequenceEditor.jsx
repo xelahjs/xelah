@@ -12,7 +12,7 @@ import Document from './Document';
 import SectionHeading from './SectionHeading';
 import Block from './Block';
 
-import './SequenceHtmlEditor.css';
+import './HtmlSequenceEditor.css';
 
 const parser = new DOMParser();
 
@@ -27,9 +27,9 @@ const DEFAULT_PROPS = {
   },
 };
 
-export default function SequenceHtmlEditor({
-  content,
-  onContent: _onContent,
+export default function HtmlSequenceEditor({
+  htmlSequence,
+  onHtmlSequence: _onHtmlSequence,
   options: _options,
   components: _components,
   parsers: _parsers,
@@ -49,8 +49,8 @@ export default function SequenceHtmlEditor({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const doc = parser.parseFromString(content, 'text/html');
-  // parse the full content by divs for rendering
+  const doc = parser.parseFromString(htmlSequence, 'text/html');
+  // parse the full htmlSequence by divs for rendering
   const divs = {
     sequence: () => doc.getElementById("sequence"),
     content: () => doc.getElementById("content"),
@@ -73,14 +73,14 @@ export default function SequenceHtmlEditor({
     ..._components
   };
 
-  const onContent = (_content) => {
-    divs.content().innerHTML = _content;
-    _onContent(divs.sequence().outerHTML);
+  const onHtmlSequence = (_htmlSequence) => {
+    divs.content().innerHTML = _htmlSequence;
+    _onHtmlSequence(divs.sequence().outerHTML);
   };
 
   const perfProps = {
-    content: divs.content().innerHTML,
-    onContent,
+    htmlSequence: divs.content().innerHTML,
+    onHtmlSequence,
     options,
     components,
     parsers,
@@ -97,11 +97,11 @@ export default function SequenceHtmlEditor({
   );
 };
 
-SequenceHtmlEditor.propTypes = {
+HtmlSequenceEditor.propTypes = {
   /** Text to be edited whether file, section or block */
-  content: PropTypes.string.isRequired,
+  htmlSequence: PropTypes.string.isRequired,
   /** Function triggered on edit */
-  onContent: PropTypes.func,
+  onHtmlSequence: PropTypes.func,
   /** Options for the editor */
   options: PropTypes.shape({
     /** Parse content by sections using sectionParser */
@@ -155,4 +155,4 @@ SequenceHtmlEditor.propTypes = {
   verbose: PropTypes.bool,
 };
 
-SequenceHtmlEditor.defaultProps = DEFAULT_PROPS;
+HtmlSequenceEditor.defaultProps = DEFAULT_PROPS;
