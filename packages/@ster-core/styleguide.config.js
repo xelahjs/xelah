@@ -7,6 +7,7 @@ const {
 module.exports = {
   usageMode: 'expand',
   exampleMode: 'expand',
+  moduleAliases: {},
   getComponentPathLine: componentPath => {
     const name = path.basename(componentPath, '.js');
     return `import { ${name} } from '${packageName}';`;
