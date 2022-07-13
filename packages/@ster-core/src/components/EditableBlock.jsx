@@ -40,6 +40,7 @@ export default function EditableBlock({
     onClick,
     index,
     verbose,
+    options,
     ...editableBlockProps,
     ...props
   };
