@@ -1,7 +1,7 @@
 {
   "name": "@ster/core",
   "description": "A React Library for simple text editing.",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "private": false,
   "homepage": "https://ster-core.netlify.app/",
   "license": "MIT",
