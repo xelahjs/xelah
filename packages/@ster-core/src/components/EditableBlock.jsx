@@ -45,9 +45,7 @@ export default function EditableBlock({
   };
 
   return (
-    <EditableContextMenu components={components} save={save}>
-      <Block key={editIndex + content} {...blockProps} />
-    </EditableContextMenu>
+    <Block key={editIndex + content} {...blockProps} />
   );
 };
 

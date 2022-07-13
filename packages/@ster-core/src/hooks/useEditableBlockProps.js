@@ -20,7 +20,7 @@ export default function useEditableBlockProps({
   decorators: _decorators,
   options: _options,
 }) {
-  const { returnHtml, editable } = { ...DEFAULT_PROPS.options, ..._options };
+  const { returnHtml, editable, preview } = { ...DEFAULT_PROPS.options, ..._options };
 
   const [editIndex, setEditIndex] = useState(0);
 
@@ -37,7 +37,7 @@ export default function useEditableBlockProps({
       });
     };
     return ___html;
-  }, [content, returnHtml, _decorators]);
+  }, [content, returnHtml, _decorators, preview]);
 
   const save = useDeepCompareCallback((element) => {
     let _content;
