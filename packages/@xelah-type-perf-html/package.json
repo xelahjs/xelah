@@ -12,6 +12,9 @@
   "dependencies": {
     "@xelah/core": "^1.0.0-beta.1"
   },
+  "workspaces": {
+    "nohoist": ["@xelah/core", "@xelah/core/**"]
+  },
   "scripts": {
     "start": "yarn && styleguidist server",
     "build-dev": "styleguidist build",

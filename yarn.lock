@@ -2426,6 +2426,13 @@
     "@webassemblyjs/ast" "1.11.1"
     "@xtuc/long" "4.2.2"
 
+"@xelah/core@^1.0.0-beta.1":
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@xelah/core/-/core-1.0.0-beta.1.tgz#522d1cbc6972d69679547c18a9fc73ee2e061712"
+  integrity sha512-W6MmOzRatbOkbYKJstJcglVrBUEF5w8m85uGQ0H+82GWQIqcuxS53WNIB4hBVasQHw9LbluWAfCS7NhWrXD2nQ==
+  dependencies:
+    use-deep-compare "^1.1.0"
+
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
