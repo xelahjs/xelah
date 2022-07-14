@@ -1,9 +1,10 @@
 {
   "private": true,
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": ["packages/*"],
+    "nohoist": ["@xelah/core", "@xelah/core/**"]
+  },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.10",
