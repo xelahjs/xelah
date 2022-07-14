@@ -1,7 +1,7 @@
 {
   "name": "@ster/type-perf-html",
   "description": "A React Component Library for simple text editing.",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "private": false,
   "homepage": "https://ster-type-perf-html.netlify.app/",
   "license": "MIT",
