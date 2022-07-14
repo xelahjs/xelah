@@ -10,7 +10,7 @@ const DEFAULT_PROPS = {
   ...useEditableBlockProps.defaultProps,
   style: { whiteSpace: 'pre-wrap', padding: '1em' },
   components: {
-    block: ({ content, verbose, ...props }) => (<div className='block' {...props} />),
+    block: ({ content, verbose, options, ...props }) => (<div className='block' {...props} />),
   },
 };
 

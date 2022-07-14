@@ -30,7 +30,7 @@ const components = {
   sectionHeading: ({ show, ...props}) => (
     <h3 {...props}><hr/>{props.content.split('\n')[0]}<hr/></h3>
   ),
-  block: ({ verbose, ...props }) => (
+  block: ({ verbose, options, content, index, ...props }) => (
     <p {...props} style={{ padding: '0 0.2em', whiteSpace: 'pre-wrap' }}></p>
   ),
 };

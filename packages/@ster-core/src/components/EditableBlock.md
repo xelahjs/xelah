@@ -20,7 +20,7 @@ const style = {
 }
 ;
 const components = {
-  block: ({ content, verbose, ...props }) => (<p {...props}></p>),
+  block: ({ content, verbose, options, ...props }) => (<p {...props}></p>),
 };
 
 const decorators = {
