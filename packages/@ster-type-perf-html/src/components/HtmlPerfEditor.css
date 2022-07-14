@@ -1,24 +1,8 @@
-html {
-  background-color: lightgray;
-}
-
-.App {
-  font-family: sans-serif;
-}
-
-#offset {
-  min-height: 4em;
-}
-
 .sectionHeading {
   text-align: center;
   width: 100%;
   font-weight: 700;
   text-transform: capitalize;
-}
-
-.MuiAccordionSummary-root.Mui-expanded {
-  border-bottom: 1px solid darkgray;
 }
 
 .perf div.graft:before {
@@ -96,14 +80,14 @@ html {
 }
 
 .perf .introduction,
-.perf div[sequencetype="introduction"] .block {
+.perf div[type="introduction"] .paragraph {
   font-size: 1.1rem;
   margin: 0.5em 0em;
   text-align: unset;
 }
 
 .perf .heading,
-.perf div[sequencetype="heading"] .block {
+.perf div[type="heading"] .paragraph {
   font-size: 1.2rem;
   font-weight: 700;
   text-align: center;
@@ -111,7 +95,7 @@ html {
 }
 
 .perf .title,
-.perf div[sequencetype="title"] .block {
+.perf div[type="title"] .paragraph {
   font-weight: 700;
   font-size: 1.5rem;
   text-align: center;
@@ -122,18 +106,18 @@ html {
   font-size: 3rem;
 }
 
-.perf .heading.s {
+.perf .heading .s {
   font-size: 1.2rem;
 }
 
-.perf .heading.r {
+.perf .heading .r {
   font-size: 1.1rem;
   font-weight: 600;
   padding: 0.25em 0.2em;
 }
 
 .perf #sequence .heading#sequence,
-.perf #sequence .heading#sequence .block {
+.perf #sequence .heading#sequence .paragraph {
   padding: 0;
 }
 

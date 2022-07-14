@@ -18,7 +18,12 @@ This example shows the bare minimum use case and uses default components to rend
 ```js
 import { useState, useEffect } from 'react';
 
-import { htmlSequence as _htmlSequence } from '../data/htmlSequence.js';
+import {
+  mainSequenceId,
+  sequencesHtml
+} from '../data/tit-fra_fraLSG-perf.html.json';
+
+const _htmlSequence = sequencesHtml[mainSequenceId];
 
 function Component () {
   const [htmlSequence, setHtmlPerf] = useState(_htmlSequence);
@@ -61,7 +66,7 @@ function Component () {
       onBlockClick,
     },
     sectionIndex,
-    verbose: true,
+    verbose: false,
   };
 
   const buttons = (

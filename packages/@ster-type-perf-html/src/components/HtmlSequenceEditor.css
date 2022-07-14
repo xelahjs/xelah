@@ -36,43 +36,44 @@
 }
 
 .perf .title,
-.perf .block.mt,
+.perf .paragraph.mt,
 .perf .graft.title,
-.perf div[sequencetype="title"] .block {
+.perf div[type="title"] .paragraph {
   font-weight: 700;
   font-size: 2em;
   margin: 0.5em 0;
 }
 
 .perf .introduction,
-.perf div[sequencetype="introduction"] .block {
+.perf div[type="introduction"] .paragraph {
   font-size: 1.5em;
   margin: 0.5em 0em;
 }
 
 .perf .heading,
-.perf div[sequencetype="heading"] .block {
+.perf div[type="heading"] .paragraph {
   font-size: 1.2em;
   font-weight: 700;
   text-align: center;
   padding: 0.5em 0.2em 0.25em;
 }
 
-.perf .heading.s {
+.perf .heading p.s {
   font-size: 1.2em;
 }
 
-.perf .heading.r {
+.perf .heading p.r {
   font-size: 1.1em;
   font-weight: 600;
   padding: 0.25em 0.2em;
 }
 
-.perf .block {
+.perf .paragraph {
   padding: 0.5em 0.2em;
+  margin: 0;
 }
 
-.perf .block span.graft {
+.perf .paragraph span.graft {
   font-weight: 100;
   font-size: 0.75em;
   vertical-align: super;

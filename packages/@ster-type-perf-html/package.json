@@ -10,7 +10,7 @@
     "url": "https://github.com/unfoldingWord-box3/ster.git"
   },
   "dependencies": {
-    "@ster/core": "^1.0.0-alpha"
+    "@ster/core": "^1.0.0-alpha.3"
   },
   "scripts": {
     "start": "yarn && styleguidist server",

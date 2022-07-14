@@ -1670,10 +1670,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@ster/core@^1.0.0-alpha":
-  version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@ster/core/-/core-1.0.0-alpha.1.tgz#7a23c09f86b96cfd25e8f0db70939baf9f9c20f0"
-  integrity sha512-sr6EW9Lk8E96ov5G5KoK9u3UO+DKlmIwVXPjaMI0zlxRTaMZ4jZgUgqA/DNxlO8hwSiBJGdOslxRu5shN5vL0g==
+"@ster/core@^1.0.0-alpha.3":
+  version "1.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@ster/core/-/core-1.0.0-alpha.3.tgz#293bce272f4aba8d463491202b9638ed8c570192"
+  integrity sha512-CF4/BixkQOsZ7NPjspiQ/grfrw+FxOWdtPorm8GUJoqLTbyXAG1TyqK5Ydbtzkryt7PTj6kSKFDXpxw75PXnBg==
   dependencies:
     use-deep-compare "^1.1.0"
 

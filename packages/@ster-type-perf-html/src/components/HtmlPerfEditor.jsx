@@ -5,23 +5,27 @@ import { useDeepCompareCallback, useDeepCompareMemo } from "use-deep-compare";
 
 import { embedPreviewTextInGrafts } from "../core/nestPerf";
 import { getTypeFromSequenceHtml } from "../core/getType";
-import Block from "./Block";
+import SectionHeading from "./SectionHeading";
+import RecursiveBlock from "./RecursiveBlock";
 
 import HtmlSequenceEditor from "./HtmlSequenceEditor";
 
 import './HtmlPerfEditor.css';
 
 export default function HtmlPerfEditor({
-  sequenceId: __sequenceId,
-  addSequenceId,
-  options,
   htmlPerf,
   onHtmlPerf,
-  components,
-  ..._props
+  sequenceIds,
+  addSequenceId,
+  options,
+  components: _components,
+  handlers,
+  ...props
 }) {
   const [sectionIndices, setSectionIndices] = useState({});
-  const sequenceId = __sequenceId || htmlPerf.mainSequenceId;
+  const sequenceId = sequenceIds.at(-1);
+
+  const components = { sectionHeading: SectionHeading, ..._components };
 
   const htmlSequence = useDeepCompareMemo(() => (
     embedPreviewTextInGrafts({ htmlPerf, sequenceId })
@@ -49,37 +53,33 @@ export default function HtmlPerfEditor({
     };
   }, [addSequenceId]);
 
-  const onContentHandler = useCallback((_content) => {
+  const onHtmlSequence = useCallback((_content) => {
     if (htmlSequence !== _content) {
       onHtmlPerf({ sequenceId, sequenceHtml: _content });
     };
   }, [onHtmlPerf, htmlSequence, sequenceId]);
 
-
-  const props = {
+  const _props = {
     htmlSequence,
-    onHtmlSequence: onContentHandler,
+    onHtmlSequence,
     components: {
       ...components,
-      sectionHeading: (props) => components.sectionHeading({ type: sequenceType, ...props }),
-      block: Block,
+      sectionHeading: (__props) => components.sectionHeading({ type: sequenceType, ...__props }),
+      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, ...__props }),
     },
     options,
     handlers: {
+      ...handlers,
       onSectionClick,
-      onBlockClick
+      onBlockClick,
     },
     decorators: {},
     sectionIndex,
-    ..._props
+    ...props
   };
 
-  console.log(options);
-
   return (
-    <div className="HtmlPerfEditor" key={sequenceId}>
-      <HtmlSequenceEditor key={sequenceId} {...props} />
-    </div>
+    <HtmlSequenceEditor key={sequenceId} {..._props} />
   );
 };
 
@@ -142,6 +142,6 @@ HtmlPerfEditor.propTypes = {
 };
 
 HtmlPerfEditor.defaultProps = {
-  sequenceId: undefined,
+  sequenceIds: [],
 };
 

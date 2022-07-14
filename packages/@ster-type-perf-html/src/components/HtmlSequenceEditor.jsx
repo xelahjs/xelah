@@ -10,7 +10,6 @@ import sectionParser from '../core/sectionParser';
 
 import Document from './Document';
 import SectionHeading from './SectionHeading';
-import Block from './Block';
 
 import './HtmlSequenceEditor.css';
 
@@ -35,6 +34,8 @@ export default function HtmlSequenceEditor({
   parsers: _parsers,
   joiners: _joiners,
   decorators: _decorators,
+  handlers,
+  sectionIndex,
   verbose = false,
   ...props
 }) {
@@ -50,49 +51,48 @@ export default function HtmlSequenceEditor({
   }, []);
 
   const doc = parser.parseFromString(htmlSequence, 'text/html');
-  // parse the full htmlSequence by divs for rendering
-  const divs = {
-    sequence: () => doc.getElementById("sequence"),
-    content: () => doc.getElementById("content"),
+  // parse the full htmlSequence by nodes for rendering
+  const nodes = {
+    sequence: () => doc.getElementsByTagName('section')[0],
   };
 
   const options = { returnHtml: true, ..._options };
 
   const parsers = {
-    section: sectionParser({ divs }),
+    section: sectionParser({ nodes }),
     block: blockParser,
     ..._parsers
   };
 
-  const sequenceDataset = divs.sequence()?.dataset;
-
   const components = {
-    document: (props) => Document({ dataset: sequenceDataset, verbose, ...props }),
+    document: (props) => Document({ nodes, verbose, ...props }),
     sectionHeading: SectionHeading,
-    block: Block,
+    // block: RecursiveBlock,
     ..._components
   };
 
   const onHtmlSequence = (_htmlSequence) => {
-    divs.content().innerHTML = _htmlSequence;
-    _onHtmlSequence(divs.sequence().outerHTML);
+    nodes.sequence().innerHTML = _htmlSequence;
+    _onHtmlSequence(nodes.sequence().outerHTML);
   };
 
-  const perfProps = {
-    htmlSequence: divs.content().innerHTML,
+  const _props = {
+    htmlSequence: nodes.sequence().innerHTML,
     onHtmlSequence,
     options,
     components,
     parsers,
     joiners,
     decorators,
+    handlers,
+    sectionIndex,
     verbose,
     ...props
   };
 
   return (
     <div className='perf' key="1">
-      <EditableContent key="1" {...perfProps} />
+      <EditableContent key="1" {..._props} />
     </div>
   );
 };

@@ -7,9 +7,11 @@ It navigates the Sequences and initiates a SequenceHtml editor for the main sequ
 ```js
 import { useState, useEffect } from 'react';
 
-import { SectionHeading } from '@ster/type-perf-html';
+import {
+  SectionHeading,
+} from '@ster/type-perf-html';
 
-import _htmlPerf from '../data/jonah.perf.html.json';
+import _htmlPerf from '../data/tit-fra_fraLSG-perf.html.json';
 
 const components = {
   sectionHeading: SectionHeading,
@@ -18,11 +20,11 @@ const components = {
 function Component () {
   const [htmlPerf, setHtmlPerf] = useState(_htmlPerf);
   const [sequenceIds, setSequenceIds] = useState([htmlPerf.mainSequenceId]);
-  const [sectionIndex, setSectionIndex] = useState(0);
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
   const [editable, setEditable] = useState(true);
-  const [preview, setPreview] = useState(false);
+  const [preview, setPreview] = useState(true);
+  const [verbose, setVerbose] = useState(false);
 
   const onSectionable = () => { setSectionable(!sectionable); };
   const onBlockable = () => { setBlockable(!blockable); };
@@ -32,38 +34,20 @@ function Component () {
     setSequenceIds( _sequenceIds => [...sequenceIds, sequenceId]);
   };
 
-  const onSectionClick = ({content: _content, index}) => {
-    // console.log(index, _content);
-    setSectionIndex(index);
-  };
-
-  const onBlockClick = ({content: _content, index, element}) => {
-    // console.log(element.dataset.target);
-  };
-
   const onContent = (_content) => {
     console.log('content changed!');
     setContent(_content);
   };
 
+  const options = { sectionable, blockable, editable, preview, verbose };
+
   const props = {
-    sequenceId: sequenceIds[0],
+    sequenceIds,
     addSequenceId,
     htmlPerf,
     onHtmlPerf: setHtmlPerf,
     components,
-    options: {
-      sectionable,
-      blockable,
-      editable,
-      preview,
-    },
-    handlers: {
-      onSectionClick,
-      onBlockClick,
-    },
-    sectionIndex,
-    verbose: true,
+    options,
   };
 
   const buttons = (

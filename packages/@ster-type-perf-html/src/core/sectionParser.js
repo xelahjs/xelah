@@ -1,15 +1,15 @@
-export default function sectionParser({ divs }) {
+export default function sectionParser({ nodes }) {
   return (
     () => {
       let sections = [];
       let queue = [];
 
-      Array.from(divs.content().children, (block) => {
+      Array.from(nodes.sequence().children, (block) => {
         const { type } = block.dataset;
-        const isBlock = type === "block";
+        const isBlock = type !== "graft";
 
         if (isBlock) {
-          const isChapter = block.firstChild?.dataset?.type === "chapter";
+          const isChapter = block.firstChild?.dataset?.subtype === "chapter";
 
           if (isChapter) {
             // remove last grafts preceding chapter
