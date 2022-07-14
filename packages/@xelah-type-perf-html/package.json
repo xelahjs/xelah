@@ -1,8 +1,7 @@
 {
   "name": "@xelah/type-perf-html",
   "description": "A React Component Library for simple text editing.",
-  "version": "1.0.0-beta.1",
-  "private": false,
+  "version": "1.0.0-beta.2",
   "homepage": "https://xelah-type-perf-html.netlify.app/",
   "license": "MIT",
   "repository": {
@@ -10,11 +9,11 @@
     "url": "https://github.com/unfoldingWord-box3/xelah.git"
   },
   "dependencies": {
-    "@xelah/core": "^1.0.0-beta.1"
+    "@xelah/core": "^1.0.0-beta.2"
   },
   "scripts": {
-    "start": "yarn && styleguidist server",
-    "build-dev": "styleguidist build",
+    "start": "yarn && ../../node_modules/.bin/styleguidist server",
+    "build-dev": "../../node_modules/.bin/styleguidist build",
     "build": "../../node_modules/.bin/babel src --out-dir build && cp ./src/components/*.css ./build/components",
     "test": "react-scripts test",
     "prepublishOnly": "rm -fr ./build && yarn build"
@@ -37,7 +36,6 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {},
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
