@@ -3,7 +3,7 @@
   "license": "MIT",
   "workspaces": {
     "packages": ["packages/*"],
-    "nohoist": ["@xelah/core", "@xelah/core/**"]
+    "nohoist": ["@xelah/core", "@xelah/core/**","use-deep-compare/**","use-deep-compare"]
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
