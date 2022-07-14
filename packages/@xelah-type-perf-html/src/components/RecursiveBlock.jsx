@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import { getTarget } from '../core/getTarget';
@@ -47,5 +48,9 @@ export default function RecursiveBlock({
     component ||= <div {...props} contentEditable={false} />;
   };
 
-  return component;
+  return (
+    <>
+      {component}
+    </>
+  );
 };
