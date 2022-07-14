@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 
 import {
   SectionHeading,
-} from '@ster/type-perf-html';
+} from '@xelah/type-perf-html';
 
 import _htmlPerf from '../data/tit-fra_fraLSG-perf.html.json';
 

@@ -1,13 +1,13 @@
 {
-  "name": "@ster/usfm",
+  "name": "@xelah/usfm",
   "description": "A React Component Library for simple USFM editing.",
   "version": "6.16.0",
   "private": false,
-  "homepage": "https://ster-usfm.netlify.app/",
+  "homepage": "https://xelah-usfm.netlify.app/",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/unfoldingWord-box3/ster.git"
+    "url": "https://github.com/unfoldingWord-box3/xelah.git"
   },
   "dependencies": {
     "use-deep-compare": "^1.1.0"

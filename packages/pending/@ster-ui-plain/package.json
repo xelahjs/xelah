@@ -1,13 +1,13 @@
 {
-  "name": "@ster/ui-plain",
+  "name": "@xelah/ui-plain",
   "description": "A React Component Library for simple text editing.",
   "version": "7.0.0",
   "private": false,
-  "homepage": "https://ster-ui-plain.netlify.app/",
+  "homepage": "https://xelah-ui-plain.netlify.app/",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/unfoldingWord-box3/ster.git"
+    "url": "https://github.com/unfoldingWord-box3/xelah.git"
   },
   "dependencies": {},
   "scripts": {

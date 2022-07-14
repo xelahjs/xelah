@@ -1,13 +1,13 @@
 {
-  "name": "@ster/core",
+  "name": "@xelah/core",
   "description": "A React Library for simple text editing.",
   "version": "1.0.0-alpha.3",
   "private": false,
-  "homepage": "https://ster-core.netlify.app/",
+  "homepage": "https://xelah-core.netlify.app/",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/unfoldingWord-box3/ster.git"
+    "url": "https://github.com/unfoldingWord-box3/xelah.git"
   },
   "dependencies": {
     "use-deep-compare": "^1.1.0"

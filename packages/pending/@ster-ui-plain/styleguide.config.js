@@ -9,10 +9,10 @@ const {
 module.exports = {
   usageMode: 'expand',
   exampleMode: 'expand',
-  moduleAliases: { 'ster-perf-html': path.resolve(__dirname, 'src') },
+  moduleAliases: { '@xelah/ui-plain': path.resolve(__dirname, 'src') },
   getComponentPathLine: componentPath => {
     const name = path.basename(componentPath, '.jsx');
-    return `import { ${name} } from 'ster-perf-html';`;
+    return `import { ${name} } from '@xelah/ui-plain';`;
   },
   title: `${upperFirst(camelCase(name))} v${version}`,
   ribbon: {

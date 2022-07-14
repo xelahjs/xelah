@@ -1,13 +1,13 @@
 {
-  "name": "@ster/markdown",
+  "name": "@xelah/markdown",
   "description": "A React Component Library for simple markdown editing.",
   "version": "6.16.0",
   "private": false,
-  "homepage": "https://ster-markdown.netlify.app/",
+  "homepage": "https://xelah-markdown.netlify.app/",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/unfoldingWord-box3/ster.git"
+    "url": "https://github.com/unfoldingWord-box3/xelah.git"
   },
   "dependencies": {
     "use-deep-compare": "^1.1.0"

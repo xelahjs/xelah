@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { EditableContent } from '@ster/core';
+import { EditableContent } from '@xelah/core';
 
 import blockParser from '../core/blockParser';
 import sectionParser from '../core/sectionParser';

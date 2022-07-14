@@ -1670,9 +1670,9 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@ster/core@^1.0.0-alpha.3":
+"@xelah/core@^1.0.0-alpha.3":
   version "1.0.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@ster/core/-/core-1.0.0-alpha.3.tgz#293bce272f4aba8d463491202b9638ed8c570192"
+  resolved "https://registry.yarnpkg.com/@xelah/core/-/core-1.0.0-alpha.3.tgz#293bce272f4aba8d463491202b9638ed8c570192"
   integrity sha512-CF4/BixkQOsZ7NPjspiQ/grfrw+FxOWdtPorm8GUJoqLTbyXAG1TyqK5Ydbtzkryt7PTj6kSKFDXpxw75PXnBg==
   dependencies:
     use-deep-compare "^1.1.0"
