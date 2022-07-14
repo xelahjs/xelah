@@ -1,4 +1,4 @@
-# STER: Simple Text Editor for React
+# ~STER~XELAH: Simple Text Editor for React
 
 STER is a collection of libraries that build on top of each other. 
 
