@@ -31,3 +31,18 @@ A precursor to ste-perf-html, STE USFM is an implementation that is a starting p
 ### @xelah/type-markdown
 
 A markdown implementation that is not comprehensive but a starting point that could use contributions.
+
+
+# Useful libraries:
+
+## Epitelete
+https://www.npmjs.com/package/epitelete
+https://github.com/Proskomma/epitelete
+
+## Epitelete-Perf-Html
+https://www.npmjs.com/package/epitelete-perf-html
+https://github.com/unfoldingWord-box3/Epitelete-Perf-Html
+
+## Xelah
+https://www.npmjs.com/org/xelah
+https://github.com/xelahjs/xelah 
