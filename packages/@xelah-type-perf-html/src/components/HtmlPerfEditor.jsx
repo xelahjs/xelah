@@ -2,6 +2,7 @@
 import React, { useCallback, useState, useMemo } from "react";
 import PropTypes from 'prop-types';
 import { useDeepCompareCallback, useDeepCompareMemo } from "use-deep-compare";
+import isEqual from 'lodash.isequal';
 
 import { embedPreviewTextInGrafts } from "../core/nestPerf";
 import { getTypeFromSequenceHtml } from "../core/getType";
@@ -53,11 +54,20 @@ export default function HtmlPerfEditor({
     };
   }, [addSequenceId]);
 
-  const onHtmlSequence = useCallback((_content) => {
-    if (htmlSequence !== _content) {
-      onHtmlPerf({ sequenceId, sequenceHtml: _content });
+  const onHtmlSequence = useDeepCompareCallback((_htmlSequence) => {
+    const sequenceChanged = htmlSequence !== _htmlSequence;
+
+    if (sequenceChanged) {
+      let _sequencesHtml = {};
+      _sequencesHtml[sequenceId] = _htmlSequence;
+      const __sequencesHtml = { ...htmlPerf.sequencesHtml, ..._sequencesHtml };
+      const _htmlPerf = { ...htmlPerf, sequencesHtml: __sequencesHtml };
+
+      const perfChanged = !isEqual(htmlPerf, _htmlPerf);
+
+      if (perfChanged) onHtmlPerf(_htmlPerf);
     };
-  }, [onHtmlPerf, htmlSequence, sequenceId]);
+  }, [htmlPerf, onHtmlPerf, htmlSequence, sequenceId]);
 
   const _props = {
     htmlSequence,
@@ -79,7 +89,7 @@ export default function HtmlPerfEditor({
   };
 
   return (
-    <HtmlSequenceEditor key={sequenceId} {..._props} />
+    <HtmlSequenceEditor {..._props} />
   );
 };
 
