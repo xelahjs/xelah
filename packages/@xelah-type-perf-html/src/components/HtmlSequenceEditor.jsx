@@ -77,8 +77,8 @@ export default function HtmlSequenceEditor({
   };
 
   const _props = {
-    htmlSequence: nodes.sequence().innerHTML,
-    onHtmlSequence,
+    content: nodes.sequence().innerHTML,
+    onContent: onHtmlSequence,
     options,
     components,
     parsers,

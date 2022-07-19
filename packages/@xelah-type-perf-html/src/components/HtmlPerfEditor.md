@@ -11,14 +11,14 @@ import {
   SectionHeading,
 } from '@xelah/type-perf-html';
 
-import _htmlPerf from '../data/tit-fra_fraLSG-perf.html.json';
+import __htmlPerf from '../data/tit-fra_fraLSG-perf.html.json';
 
 const components = {
   sectionHeading: SectionHeading,
 }
 
 function Component () {
-  const [htmlPerf, setHtmlPerf] = useState(_htmlPerf);
+  const [htmlPerf, setHtmlPerf] = useState(__htmlPerf);
   const [sequenceIds, setSequenceIds] = useState([htmlPerf.mainSequenceId]);
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
@@ -34,9 +34,9 @@ function Component () {
     setSequenceIds( _sequenceIds => [...sequenceIds, sequenceId]);
   };
 
-  const onContent = (_content) => {
-    console.log('content changed!');
-    setContent(_content);
+  const onHtmlPerf = (_htmlPerf) => {
+    console.log('htmlPerf changed!', {_htmlPerf});
+    setHtmlPerf(_htmlPerf);
   };
 
   const options = { sectionable, blockable, editable, preview, verbose };
@@ -45,7 +45,7 @@ function Component () {
     sequenceIds,
     addSequenceId,
     htmlPerf,
-    onHtmlPerf: setHtmlPerf,
+    onHtmlPerf,
     components,
     options,
   };
