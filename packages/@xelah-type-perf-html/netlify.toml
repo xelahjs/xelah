@@ -5,5 +5,5 @@
 
 [build]
   base = "packages/@xelah-type-perf-html"
-  publish = "packages/@xelah-type-perf-html/styleguide"
+  publish = "styleguide"
   command = "yarn nx build-dev --skip-nx-cache"
