@@ -12,11 +12,11 @@
     "use-deep-compare": "^1.1.0"
   },
   "scripts": {
-    "start": "yarn && ../../node_modules/.bin/styleguidist server",
-    "build-dev": "../../node_modules/.bin/styleguidist build",
-    "build": "../../node_modules/.bin/babel src --out-dir build",
+    "start": "yarn && styleguidist server",
+    "build-dev": "styleguidist build",
+    "build": "babel src --out-dir build",
     "test": "react-scripts test",
-    "prepublishOnly": "rm -fr ./build && yarn build"
+    "prepublishOnly": "rm -fr ./build && nx build"
   },
   "eslintConfig": {
     "extends": [
