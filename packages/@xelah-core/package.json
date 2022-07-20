@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/unfoldingWord-box3/xelah.git"
+    "url": "https://github.com/xelahjs/xelah.git"
   },
   "dependencies": {
     "use-deep-compare": "^1.1.0"

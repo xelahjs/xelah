@@ -56,13 +56,9 @@ export default function HtmlPerfEditor({
 
   const onHtmlSequence = useDeepCompareCallback((_htmlSequence) => {
     const sequenceChanged = htmlSequence !== _htmlSequence;
-
     if (sequenceChanged) {
-      let _sequencesHtml = {};
-      _sequencesHtml[sequenceId] = _htmlSequence;
-      const __sequencesHtml = { ...htmlPerf.sequencesHtml, ..._sequencesHtml };
-      const _htmlPerf = { ...htmlPerf, sequencesHtml: __sequencesHtml };
-
+      let _htmlPerf = structuredClone(htmlPerf);
+      _htmlPerf.sequencesHtml[sequenceId] = _htmlSequence;
       const perfChanged = !isEqual(htmlPerf, _htmlPerf);
 
       if (perfChanged) onHtmlPerf(_htmlPerf);
