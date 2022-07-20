@@ -2,13 +2,7 @@
   "private": true,
   "license": "MIT",
   "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "@xelah/core",
-      "@xelah/core/**"
-    ]
+    "packages": ["packages/*"]
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
@@ -36,7 +30,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "^5.0.1",
-    "react-styleguidist": "^11.2.0"
+    "react-styleguidist": "^11.2.0",
+    "nx": "14.4.3",
+    "@nrwl/nx-cloud": "latest"
   },
   "packageManager": "yarn@2.4.3"
 }
