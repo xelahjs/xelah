@@ -61,7 +61,7 @@ export default function HtmlPerfEditor({
       _htmlPerf.sequencesHtml[sequenceId] = _htmlSequence;
 
       const perfChanged = !isEqual(htmlPerf, _htmlPerf);
-      if (perfChanged) onHtmlPerf(htmlPerf, { sequenceId, htmlSequence: _htmlSequence });
+      if (perfChanged) onHtmlPerf(_htmlPerf, { sequenceId, htmlSequence: _htmlSequence });
     };
   }, [htmlPerf, onHtmlPerf, htmlSequence, sequenceId]);
 
