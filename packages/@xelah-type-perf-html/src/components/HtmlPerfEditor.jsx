@@ -59,9 +59,9 @@ export default function HtmlPerfEditor({
     if (sequenceChanged) {
       let _htmlPerf = structuredClone(htmlPerf);
       _htmlPerf.sequencesHtml[sequenceId] = _htmlSequence;
-      const perfChanged = !isEqual(htmlPerf, _htmlPerf);
 
-      if (perfChanged) onHtmlPerf(_htmlPerf);
+      const perfChanged = !isEqual(htmlPerf, _htmlPerf);
+      if (perfChanged) onHtmlPerf(htmlPerf, { sequenceId, htmlSequence: _htmlSequence });
     };
   }, [htmlPerf, onHtmlPerf, htmlSequence, sequenceId]);
 
@@ -92,7 +92,7 @@ export default function HtmlPerfEditor({
 HtmlPerfEditor.propTypes = {
   /** Text to be edited whether file, section or block */
   htmlPerf: PropTypes.object.isRequired,
-  /** Function triggered on edit */
+  /** Function triggered on edit, returns (htmlPerf, { sequenceId, htmlSequence }) */
   onHtmlPerf: PropTypes.func,
   /** Options for the editor */
   options: PropTypes.shape({
