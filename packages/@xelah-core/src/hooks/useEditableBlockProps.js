@@ -50,8 +50,10 @@ export default function useEditableBlockProps({
       _content = div.textContent.replaceAll(/&lt;/g, '<');
     };
 
-    if (content !== _content) onContent(_content);
-    setEditIndex(editIndex + 1);
+    if (content !== _content) {
+      onContent(_content);
+      setEditIndex(editIndex + 1);
+    };
   }, [returnHtml, content, onContent, editIndex]);
 
   const onBlur = useCallback((event) => {

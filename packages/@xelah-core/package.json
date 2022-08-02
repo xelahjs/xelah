@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "use-deep-compare": "^1.1.0",
-    "contenteditable-arrow-navigation": "^0.1.4"
+    "contenteditable-arrow-navigation": "^0.1.5"
   },
   "scripts": {
     "start": "yarn && styleguidist server",
