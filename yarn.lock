@@ -3762,6 +3762,11 @@ content-type@~1.0.4:
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
 
+contenteditable-arrow-navigation@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/contenteditable-arrow-navigation/-/contenteditable-arrow-navigation-0.1.4.tgz#95afa29f5921f3d836a46cd74fd8f556f74490e2"
+  integrity sha512-jcJEqB1XraCR5Luxfyceq6CllSxAA+cI7aF0WPoqacVUhAeVqsSnpZrbDGA9hWdYxTCoJiVBg5vuL0a+DOaGdA==
+
 convert-source-map@^1.1.0, convert-source-map@^1.4.0, convert-source-map@^1.6.0, convert-source-map@^1.7.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.8.0.tgz#f3373c32d21b4d780dd8004514684fb791ca4369"

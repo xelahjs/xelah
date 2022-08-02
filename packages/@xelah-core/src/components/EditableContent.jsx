@@ -2,7 +2,8 @@
 /* eslint-disable react/display-name */
 import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { useDeepCompareCallback, useDeepCompareMemo } from 'use-deep-compare';
+import { useDeepCompareCallback, useDeepCompareEffect, useDeepCompareMemo } from 'use-deep-compare';
+import { addArrowKeyNavigationToContenteditableElements } from 'contenteditable-arrow-navigation';
 
 import useParseSectionsContent from '../hooks/useParseSectionsContent';
 import { isRtl } from '../helpers/detectRTL';
@@ -52,8 +53,14 @@ export default function EditableContent({
   const options = { ...DEFAULT_PROPS.options, ...props.options };
   const handlers = { ...DEFAULT_PROPS.handlers, ...props.handlers };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => { if (verbose) console.log('EditableContent First Render'); }, []);
+  useEffect(() => {
+    if (verbose) console.log('EditableContent First Render');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useDeepCompareEffect(() => {
+    addArrowKeyNavigationToContenteditableElements();
+  }, [options, content]);
 
   const sectionsContent = useParseSectionsContent({ content, parsers, options })
 
