@@ -11,7 +11,7 @@ import sectionParser from '../core/sectionParser';
 import Document from './Document';
 import SectionHeading from './SectionHeading';
 
-import './HtmlSequenceEditor.css';
+// import './HtmlSequenceEditor.css';
 
 const parser = new DOMParser();
 

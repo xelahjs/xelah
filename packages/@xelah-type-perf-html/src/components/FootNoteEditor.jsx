@@ -13,19 +13,20 @@ import HtmlSequenceEditor from "./HtmlSequenceEditor";
 
 // import './HtmlPerfEditor.css';
 
-export default function HtmlPerfEditor({
+export default function FootNoteEditor({
   htmlPerf,
   onHtmlPerf,
-  sequenceIds,
-  addSequenceId,
+  sequenceId,
   options,
   components: _components,
   handlers,
-  setFootNotes,
   ...props
 }) {
   const [sectionIndices, setSectionIndices] = useState({});
-  const sequenceId = sequenceIds.at(-1);
+
+  console.log("FootNote editor ID",sequenceId);
+  
+  // sequenceId ||= sequenceIds.at(-1);
 
   const components = { sectionHeading: SectionHeading, ..._components };
 
@@ -49,7 +50,7 @@ export default function HtmlPerfEditor({
   // eslint-disable-next-line no-unused-vars
   const onBlockClick = useCallback(({ content: _content, element }) => {
     const _sequenceId = element?.dataset?.target;
-
+console.log({_sequenceId,_content});
     if (_sequenceId) {
       handlers.onInlineGraftClick({
         sequenceId:_sequenceId,
@@ -58,6 +59,7 @@ export default function HtmlPerfEditor({
         options,
         components: _components,
         handlers,
+        content:_content
       });
       // addSequenceId(_sequenceId);
     };
@@ -102,7 +104,7 @@ export default function HtmlPerfEditor({
   );
 };
 
-HtmlPerfEditor.propTypes = {
+FootNoteEditor.propTypes = {
   /** Text to be edited whether file, section or block */
   htmlPerf: PropTypes.object.isRequired,
   /** Function triggered on edit, returns (htmlPerf, { sequenceId, htmlSequence }) */
@@ -160,7 +162,7 @@ HtmlPerfEditor.propTypes = {
   verbose: PropTypes.bool,
 };
 
-HtmlPerfEditor.defaultProps = {
+FootNoteEditor.defaultProps = {
   sequenceIds: [],
 };
 

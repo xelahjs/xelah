@@ -15,6 +15,7 @@ export default function RecursiveBlock({
   contentEditable,
   index,
   verbose,
+  setFootNotes,
   ...props
 }) {
   useEffect(() => {
@@ -27,10 +28,14 @@ export default function RecursiveBlock({
 
   let component;
   let editable = !!content.match(/data-type="paragraph"/);
-
+  let fnote = !!content.match(/data-subtype="f"/);
   if (editable) {
     component = <div contentEditable={contentEditable} {...props} />;
-  };
+    if (fnote) {
+      console.log({ content });
+      setFootNotes({ content });
+    }
+  }
 
   if (!editable) {
 
