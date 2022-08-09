@@ -7,7 +7,7 @@ import isEqual from 'lodash.isequal';
 import { embedPreviewTextInGrafts, removePreviewTextInGrafts } from "../core/nestPerf";
 import { getTypeFromSequenceHtml } from "../core/getType";
 import SectionHeading from "./SectionHeading";
-import RecursiveBlock from "./RecursiveBlock";
+import FootNoteRecursiveBlock from "./FootNoteRecursiveBlock";
 
 import HtmlSequenceEditor from "./HtmlSequenceEditor";
 
@@ -16,17 +16,19 @@ import HtmlSequenceEditor from "./HtmlSequenceEditor";
 export default function FootNoteEditor({
   htmlPerf,
   onHtmlPerf,
+  sequenceIds,
   sequenceId,
+  addSequenceId,
   options,
   components: _components,
   handlers,
+  setFootNotes,
   ...props
 }) {
   const [sectionIndices, setSectionIndices] = useState({});
-
-  console.log("FootNote editor ID",sequenceId);
+  // const sequenceId = sequenceIds.at(-1);
+  // console.log("FootNote editor ID",sequenceId);
   
-  // sequenceId ||= sequenceIds.at(-1);
 
   const components = { sectionHeading: SectionHeading, ..._components };
 
@@ -50,7 +52,7 @@ export default function FootNoteEditor({
   // eslint-disable-next-line no-unused-vars
   const onBlockClick = useCallback(({ content: _content, element }) => {
     const _sequenceId = element?.dataset?.target;
-console.log({_sequenceId,_content});
+// console.log({_sequenceId,_content});
     if (_sequenceId) {
       handlers.onInlineGraftClick({
         sequenceId:_sequenceId,
@@ -86,7 +88,7 @@ console.log({_sequenceId,_content});
     components: {
       ...components,
       sectionHeading: (__props) => components.sectionHeading({ type: sequenceType, ...__props }),
-      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, setFootNotes, ...__props }),
+      block: (__props) => FootNoteRecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, setFootNotes, ...__props }),
     },
     options,
     handlers: {

@@ -5,7 +5,7 @@ import { getTarget,getFootNoteTarget } from "../core/getTarget";
 import HtmlPerfEditor from "./HtmlPerfEditor";
 import FootNoteEditor from "./FootNoteEditor";
 
-export default function RecursiveBlock({
+export default function FootNoteRecursiveBlock({
   htmlPerf,
   onHtmlPerf,
   sequenceIds,
@@ -35,29 +35,29 @@ export default function RecursiveBlock({
   let fnote = !!content.match(/data-subtype="f"/);
 
   if (editable) {
-    console.log("editable content:", content);
+    // console.log("editable content:", content);
     component = <div contentEditable={contentEditable} {...props} />;
   }
-  if (fnote) {
-    // console.log({ content });
-    const sequenceId = getFootNoteTarget({ content });
-    console.log("FOOTNOTE TARGET",sequenceId);
+  // if (fnote) {
+  //   // console.log({ content });
+  //   const sequenceId = getFootNoteTarget({ content });
+  //   console.log("FOOTNOTE TARGET",sequenceId);
     
-    if (sequenceId && !options.preview) {
-    const _props = {
-      sequenceIds: [...sequenceIds, sequenceId],
-      addSequenceId,
-      htmlPerf,
-      onHtmlPerf,
-    };
-    // component = <HtmlPerfEditor {..._props} />;
+  //   if (sequenceId && !options.preview) {
+  //   const _props = {
+  //     sequenceIds: [...sequenceIds, sequenceId],
+  //     addSequenceId,
+  //     htmlPerf,
+  //     onHtmlPerf,
+  //   };
+  //   // component = <HtmlPerfEditor {..._props} />;
     
-  }
-  component = <div>footnote</div>
-  }
+  // }
+  // component = <div>footnote</div>
+  // }
 
   if (!editable) {
-    console.log("Non editable content:", content);
+    // console.log("Non editable content:", content);
 
     const sequenceId = getTarget({ content });
 

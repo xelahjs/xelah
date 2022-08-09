@@ -12,7 +12,6 @@ import RecursiveBlock from "./RecursiveBlock";
 import HtmlSequenceEditor from "./HtmlSequenceEditor";
 
 // import './HtmlPerfEditor.css';
-
 export default function HtmlPerfEditor({
   htmlPerf,
   onHtmlPerf,
@@ -26,6 +25,9 @@ export default function HtmlPerfEditor({
 }) {
   const [sectionIndices, setSectionIndices] = useState({});
   const sequenceId = sequenceIds.at(-1);
+
+  console.log({sequenceIds},{sequenceId},{htmlPerf});
+  
 
   const components = { sectionHeading: SectionHeading, ..._components };
 
@@ -49,17 +51,21 @@ export default function HtmlPerfEditor({
   // eslint-disable-next-line no-unused-vars
   const onBlockClick = useCallback(({ content: _content, element }) => {
     const _sequenceId = element?.dataset?.target;
+    // console.log("OnblockClick",_content,element);
+    
 
     if (_sequenceId) {
-      handlers.onInlineGraftClick({
-        sequenceId:_sequenceId,
-        htmlPerf,
-        onHtmlPerf,
-        options,
-        components: _components,
-        handlers,
-      });
+      // handlers.onInlineGraftClick({
+      //   sequenceId:_sequenceId,
+      //   htmlPerf,
+      //   onHtmlPerf,
+      //   options,
+      //   components: _components,
+      //   handlers,
+      // });
       // addSequenceId(_sequenceId);
+      setFootNotes(_sequenceId);
+      // [...sequenceIds,_sequenceId]
     };
   }, [addSequenceId]);
   
@@ -153,6 +159,8 @@ HtmlPerfEditor.propTypes = {
     onSectionClick: PropTypes.func,
     /** Callback triggered on Block click, provides block content and index. */
     onBlockClick: PropTypes.func,
+
+    onInlineGraftClick:PropTypes.func,
   }),
   /** Index of section to be show, for app to manage state. -1 to show all. */
   sectionIndex: PropTypes.number,
