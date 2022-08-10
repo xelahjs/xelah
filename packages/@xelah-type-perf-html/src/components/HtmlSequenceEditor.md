@@ -23,6 +23,8 @@ import {
   sequencesHtml
 } from '../data/tit-fra_fraLSG-perf.html.json';
 
+import './HtmlSequenceEditor.css';
+
 const _htmlSequence = sequencesHtml[mainSequenceId];
 
 function Component () {
