@@ -7,11 +7,9 @@ import isEqual from 'lodash.isequal';
 import { embedPreviewTextInGrafts, removePreviewTextInGrafts } from "../core/nestPerf";
 import { getTypeFromSequenceHtml } from "../core/getType";
 import SectionHeading from "./SectionHeading";
-import FootNoteRecursiveBlock from "./FootNoteRecursiveBlock";
+import RecursiveBlock from "./RecursiveBlock";
 
 import HtmlSequenceEditor from "./HtmlSequenceEditor";
-
-// import './HtmlPerfEditor.css';
 
 export default function FootNoteEditor({
   htmlPerf,
@@ -22,13 +20,10 @@ export default function FootNoteEditor({
   options,
   components: _components,
   handlers,
-  setFootNotes,
+  setFootNote,
   ...props
 }) {
-  const [sectionIndices, setSectionIndices] = useState({});
-  // const sequenceId = sequenceIds.at(-1);
-  // console.log("FootNote editor ID",sequenceId);
-  
+  const [sectionIndices, setSectionIndices] = useState({});  
 
   const components = { sectionHeading: SectionHeading, ..._components };
 
@@ -49,22 +44,10 @@ export default function FootNoteEditor({
     setSectionIndices(_sectionIndices);
   }, [setSectionIndices, sectionIndices]);
 
-  // eslint-disable-next-line no-unused-vars
+ // eslint-disable-next-line no-unused-vars
   const onBlockClick = useCallback(({ content: _content, element }) => {
     const _sequenceId = element?.dataset?.target;
-// console.log({_sequenceId,_content});
-    if (_sequenceId) {
-      handlers.onInlineGraftClick({
-        sequenceId:_sequenceId,
-        htmlPerf,
-        onHtmlPerf,
-        options,
-        components: _components,
-        handlers,
-        content:_content
-      });
       // addSequenceId(_sequenceId);
-    };
   }, [addSequenceId]);
   
 
@@ -88,7 +71,7 @@ export default function FootNoteEditor({
     components: {
       ...components,
       sectionHeading: (__props) => components.sectionHeading({ type: sequenceType, ...__props }),
-      block: (__props) => FootNoteRecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, setFootNotes, ...__props }),
+      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, setFootNote, ...__props }),
     },
     options,
     handlers: {

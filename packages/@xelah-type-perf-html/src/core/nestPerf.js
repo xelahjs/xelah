@@ -48,11 +48,9 @@ export const embedSequencesInGrafts = ({ perfHtml, sequenceId }) => {
       sequenceId: target
     });
     graft.innerHTML = embededSequencesHtml;
-    console.log(graft);
   });
 
   const _html = dom.getElementsByTagName('section')[0].outerHTML;
-  console.log(_html);
 
   return _html;
 };

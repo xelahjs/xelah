@@ -13,6 +13,8 @@ import {
 
 import __htmlPerf from '../data/tit-fra_fraLSG-perf.html.json';
 
+import './HtmlPerfEditor.css';
+
 const components = {
   sectionHeading: SectionHeading,
 }

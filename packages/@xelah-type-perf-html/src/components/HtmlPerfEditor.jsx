@@ -11,7 +11,6 @@ import RecursiveBlock from "./RecursiveBlock";
 
 import HtmlSequenceEditor from "./HtmlSequenceEditor";
 
-// import './HtmlPerfEditor.css';
 export default function HtmlPerfEditor({
   htmlPerf,
   onHtmlPerf,
@@ -20,14 +19,11 @@ export default function HtmlPerfEditor({
   options,
   components: _components,
   handlers,
-  setFootNotes,
+  setFootNote,
   ...props
 }) {
   const [sectionIndices, setSectionIndices] = useState({});
   const sequenceId = sequenceIds.at(-1);
-
-  console.log({sequenceIds},{sequenceId},{htmlPerf});
-  
 
   const components = { sectionHeading: SectionHeading, ..._components };
 
@@ -51,22 +47,7 @@ export default function HtmlPerfEditor({
   // eslint-disable-next-line no-unused-vars
   const onBlockClick = useCallback(({ content: _content, element }) => {
     const _sequenceId = element?.dataset?.target;
-    // console.log("OnblockClick",_content,element);
-    
-
-    if (_sequenceId) {
-      // handlers.onInlineGraftClick({
-      //   sequenceId:_sequenceId,
-      //   htmlPerf,
-      //   onHtmlPerf,
-      //   options,
-      //   components: _components,
-      //   handlers,
-      // });
-      // addSequenceId(_sequenceId);
-      setFootNotes(_sequenceId);
-      // [...sequenceIds,_sequenceId]
-    };
+    _sequenceId? setFootNote(_sequenceId) : setFootNote(null);
   }, [addSequenceId]);
   
 
@@ -90,7 +71,7 @@ export default function HtmlPerfEditor({
     components: {
       ...components,
       sectionHeading: (__props) => components.sectionHeading({ type: sequenceType, ...__props }),
-      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, setFootNotes, ...__props }),
+      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, setFootNote, ...__props }),
     },
     options,
     handlers: {
@@ -159,8 +140,6 @@ HtmlPerfEditor.propTypes = {
     onSectionClick: PropTypes.func,
     /** Callback triggered on Block click, provides block content and index. */
     onBlockClick: PropTypes.func,
-
-    onInlineGraftClick:PropTypes.func,
   }),
   /** Index of section to be show, for app to manage state. -1 to show all. */
   sectionIndex: PropTypes.number,

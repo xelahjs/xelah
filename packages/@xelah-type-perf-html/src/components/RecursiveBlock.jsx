@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
-import { getTarget,getFootNoteTarget } from "../core/getTarget";
+import { getTarget } from "../core/getTarget";
 import HtmlPerfEditor from "./HtmlPerfEditor";
-import FootNoteEditor from "./FootNoteEditor";
 
 export default function RecursiveBlock({
   htmlPerf,
@@ -16,7 +15,7 @@ export default function RecursiveBlock({
   contentEditable,
   index,
   verbose,
-  setFootNotes,
+  setFootNote,
   ...props
 }) {
   useEffect(() => {
@@ -28,37 +27,14 @@ export default function RecursiveBlock({
   }, []);
 
   let component;
-  // console.log({htmlPerf});
-  // console.log("PROPS",{...props});
 
   let editable = !!content.match(/data-type="paragraph"/);
-  let fnote = !!content.match(/data-subtype="f"/);
 
   if (editable) {
-    console.log("editable content:", content);
     component = <div contentEditable={contentEditable} {...props} />;
-  }
-  if (fnote) {
-    // console.log({ content });
-    const sequenceId = getFootNoteTarget({ content });
-    console.log("FOOTNOTE TARGET",sequenceId);
-    
-    if (sequenceId && !options.preview) {
-    const _props = {
-      sequenceIds: [...sequenceIds, sequenceId],
-      addSequenceId,
-      htmlPerf,
-      onHtmlPerf,
-    };
-    // component = <HtmlPerfEditor {..._props} />;
-    
-  }
-  component = <div>footnote</div>
   }
 
   if (!editable) {
-    console.log("Non editable content:", content);
-
     const sequenceId = getTarget({ content });
 
     if (sequenceId && !options.preview) {
