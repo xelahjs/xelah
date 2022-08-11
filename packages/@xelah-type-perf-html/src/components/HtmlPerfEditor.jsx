@@ -48,7 +48,7 @@ export default function HtmlPerfEditor({
   const onBlockClick = useCallback(({ content: _content, element }) => {
     const _sequenceId = element?.dataset?.target;
     _sequenceId? setFootNote(_sequenceId) : setFootNote(null);
-  }, [addSequenceId]);
+  }, [setFootNote]);
   
 
   const onHtmlSequence = useDeepCompareCallback((_htmlSequence) => {

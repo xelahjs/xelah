@@ -20,7 +20,6 @@ export default function FootNoteEditor({
   options,
   components: _components,
   handlers,
-  setFootNote,
   ...props
 }) {
   const [sectionIndices, setSectionIndices] = useState({});  
@@ -44,11 +43,12 @@ export default function FootNoteEditor({
     setSectionIndices(_sectionIndices);
   }, [setSectionIndices, sectionIndices]);
 
- // eslint-disable-next-line no-unused-vars
+  //eslint-disable-next-line no-unused-vars
   const onBlockClick = useCallback(({ content: _content, element }) => {
     const _sequenceId = element?.dataset?.target;
-      // addSequenceId(_sequenceId);
-  }, [addSequenceId]);
+    console.log(_sequenceId)
+    // addSequenceId(_sequenceId);
+  }, []);
   
 
   const onHtmlSequence = useDeepCompareCallback((_htmlSequence) => {
@@ -71,7 +71,7 @@ export default function FootNoteEditor({
     components: {
       ...components,
       sectionHeading: (__props) => components.sectionHeading({ type: sequenceType, ...__props }),
-      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, setFootNote, ...__props }),
+      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, ...__props }),
     },
     options,
     handlers: {

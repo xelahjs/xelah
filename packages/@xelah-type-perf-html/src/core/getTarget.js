@@ -1,5 +1,3 @@
-import { Children } from "react";
-
 export const getTarget = ({ content }) => {
   const div = document.createElement("div");
   div.innerHTML = content;
