@@ -11,8 +11,6 @@ import RecursiveBlock from "./RecursiveBlock";
 
 import HtmlSequenceEditor from "./HtmlSequenceEditor";
 
-import './HtmlPerfEditor.css';
-
 export default function HtmlPerfEditor({
   htmlPerf,
   onHtmlPerf,
