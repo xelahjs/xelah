@@ -10,7 +10,7 @@ export const embedPreviewTextInGrafts = ({ htmlPerf, sequenceId }) => {
     const div = document.createElement("div");
     div.innerHTML = targetHtml;
     const previewText = div.textContent.trim();
-    graft.dataset.previewtext = previewText;
+    graft.dataset['preview-text'] = previewText;
   });
 
   const _html = dom.getElementsByTagName('section')[0].outerHTML;

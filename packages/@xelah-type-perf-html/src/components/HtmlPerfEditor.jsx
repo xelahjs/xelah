@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useDeepCompareCallback, useDeepCompareMemo } from "use-deep-compare";
 import isEqual from 'lodash.isequal';
 
-import { embedPreviewTextInGrafts, removePreviewTextInGrafts } from "../core/nestPerf";
+import { embedPreviewTextInGrafts } from "../core/nestPerf";
 import { getTypeFromSequenceHtml } from "../core/getType";
 import SectionHeading from "./SectionHeading";
 import RecursiveBlock from "./RecursiveBlock";
@@ -62,8 +62,7 @@ export default function HtmlPerfEditor({
 
       const perfChanged = !isEqual(htmlPerf, _htmlPerf);
       if (perfChanged) {
-        const htmlPerfNoPreviewText = removePreviewTextInGrafts({ htmlPerf: _htmlPerf, sequenceId });
-        onHtmlPerf(htmlPerfNoPreviewText, { sequenceId, htmlSequence: _htmlSequence });
+        onHtmlPerf(_htmlPerf, { sequenceId, htmlSequence: _htmlSequence });
       };
     };
   }, [htmlPerf, onHtmlPerf, htmlSequence, sequenceId]);

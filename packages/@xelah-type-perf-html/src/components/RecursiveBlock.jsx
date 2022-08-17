@@ -33,15 +33,15 @@ export default function RecursiveBlock({
   };
 
   if (!editable) {
-
     const sequenceId = getTarget({ content });
 
     if (sequenceId && !options.preview) {
       const _props = {
-        sequenceIds: [...sequenceIds, sequenceId],
-        addSequenceId,
         htmlPerf,
         onHtmlPerf,
+        sequenceIds: [...sequenceIds, sequenceId],
+        addSequenceId,
+        options,
       };
       component = <HtmlPerfEditor {..._props} />;
     };
