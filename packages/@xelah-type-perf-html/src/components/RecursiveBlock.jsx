@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
-import { getTarget } from '../core/getTarget';
-import HtmlPerfEditor from './HtmlPerfEditor';
+import React, { useEffect } from "react";
+import { getTarget } from "../core/getTarget";
+import HtmlPerfEditor from "./HtmlPerfEditor";
 
 export default function RecursiveBlock({
   htmlPerf,
@@ -15,25 +15,26 @@ export default function RecursiveBlock({
   contentEditable,
   index,
   verbose,
+  setFootNote,
   ...props
 }) {
   useEffect(() => {
-    if (verbose) console.log('Block: Mount/First Render', index);
-    return (() => {
-      if (verbose) console.log('Block: UnMount/Destroyed', index);
-    });
+    if (verbose) console.log("Block: Mount/First Render", index);
+    return () => {
+      if (verbose) console.log("Block: UnMount/Destroyed", index);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let component;
+
   let editable = !!content.match(/data-type="paragraph"/);
 
   if (editable) {
     component = <div contentEditable={contentEditable} {...props} />;
-  };
+  }
 
   if (!editable) {
-
     const sequenceId = getTarget({ content });
 
     if (sequenceId && !options.preview) {
@@ -44,13 +45,9 @@ export default function RecursiveBlock({
         onHtmlPerf,
       };
       component = <HtmlPerfEditor {..._props} />;
-    };
+    }
     component ||= <div {...props} contentEditable={false} />;
-  };
+  }
 
-  return (
-    <>
-      {component}
-    </>
-  );
-};
+  return <>{component}</>;
+}

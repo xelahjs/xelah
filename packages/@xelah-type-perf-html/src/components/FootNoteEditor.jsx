@@ -11,19 +11,18 @@ import RecursiveBlock from "./RecursiveBlock";
 
 import HtmlSequenceEditor from "./HtmlSequenceEditor";
 
-export default function HtmlPerfEditor({
+export default function FootNoteEditor({
   htmlPerf,
   onHtmlPerf,
   sequenceIds,
+  sequenceId,
   addSequenceId,
   options,
   components: _components,
   handlers,
-  setFootNote,
   ...props
 }) {
-  const [sectionIndices, setSectionIndices] = useState({});
-  const sequenceId = sequenceIds.at(-1);
+  const [sectionIndices, setSectionIndices] = useState({});  
 
   const components = { sectionHeading: SectionHeading, ..._components };
 
@@ -44,11 +43,12 @@ export default function HtmlPerfEditor({
     setSectionIndices(_sectionIndices);
   }, [setSectionIndices, sectionIndices]);
 
-  // eslint-disable-next-line no-unused-vars
+  //eslint-disable-next-line no-unused-vars
   const onBlockClick = useCallback(({ content: _content, element }) => {
     const _sequenceId = element?.dataset?.target;
-    _sequenceId? setFootNote(_sequenceId) : setFootNote(null);
-  }, [setFootNote]);
+    console.log(_sequenceId)
+    // addSequenceId(_sequenceId);
+  }, []);
   
 
   const onHtmlSequence = useDeepCompareCallback((_htmlSequence) => {
@@ -71,7 +71,7 @@ export default function HtmlPerfEditor({
     components: {
       ...components,
       sectionHeading: (__props) => components.sectionHeading({ type: sequenceType, ...__props }),
-      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, setFootNote, ...__props }),
+      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, ...__props }),
     },
     options,
     handlers: {
@@ -89,7 +89,7 @@ export default function HtmlPerfEditor({
   );
 };
 
-HtmlPerfEditor.propTypes = {
+FootNoteEditor.propTypes = {
   /** Text to be edited whether file, section or block */
   htmlPerf: PropTypes.object.isRequired,
   /** Function triggered on edit, returns (htmlPerf, { sequenceId, htmlSequence }) */
@@ -147,7 +147,7 @@ HtmlPerfEditor.propTypes = {
   verbose: PropTypes.bool,
 };
 
-HtmlPerfEditor.defaultProps = {
+FootNoteEditor.defaultProps = {
   sequenceIds: [],
 };
 

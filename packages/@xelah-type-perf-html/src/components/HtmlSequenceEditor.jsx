@@ -53,7 +53,6 @@ export default function HtmlSequenceEditor({
   const nodes = {
     sequence: () => doc.getElementsByTagName('section')[0],
   };
-
   const options = { returnHtml: true, ..._options };
 
   const parsers = {
@@ -73,6 +72,7 @@ export default function HtmlSequenceEditor({
     nodes.sequence().innerHTML = _htmlSequence;
     _onHtmlSequence(nodes.sequence().outerHTML);
   };
+
 
   const _props = {
     content: nodes.sequence().innerHTML,
