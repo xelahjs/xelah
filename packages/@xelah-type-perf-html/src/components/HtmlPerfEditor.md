@@ -22,6 +22,7 @@ const components = {
 function Component () {
   const [htmlPerf, setHtmlPerf] = useState(__htmlPerf);
   const [sequenceIds, setSequenceIds] = useState([htmlPerf.mainSequenceId]);
+  const [graftSequenceId, setGraftSequenceId] = useState();
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
   const [editable, setEditable] = useState(true);
@@ -43,13 +44,30 @@ function Component () {
 
   const options = { sectionable, blockable, editable, preview, verbose };
 
-  const props = {
+  const handlers = {
+    onBlockClick: ({ content: _content, element }) => {
+      const _sequenceId = element.dataset.target;
+      const { tagName } = element;
+      const isInline = tagName === 'SPAN';
+      // if (_sequenceId && !isInline) addSequenceId(_sequenceId);
+      if (_sequenceId) setGraftSequenceId(_sequenceId);
+    },
+  };
+
+  const mainProps = {
     sequenceIds,
     addSequenceId,
     htmlPerf,
     onHtmlPerf,
     components,
     options,
+    handlers,
+  };
+
+  const graftProps = {
+    ...mainProps,
+    options: { ...options, sectionable: false },
+    sequenceIds: [graftSequenceId],
   };
 
   const buttons = (
@@ -61,11 +79,20 @@ function Component () {
     </div>
   );
 
+  const graftSequenceEditor = (
+    <>
+      <h2>Graft Sequence Editor</h2>
+      <HtmlPerfEditor key="2" {...graftProps} />
+    </>
+  );
+
   return (
     <div key="1">
       {buttons}
-      <HtmlPerfEditor key="1" {...props} />
+      <h2>Main Sequence Editor</h2>
+      <HtmlPerfEditor key="1" {...mainProps} />
       {buttons}
+      {graftSequenceId ? graftSequenceEditor : '' }
     </div>
   );
 };

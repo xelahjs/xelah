@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useCallback, useState, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import PropTypes from 'prop-types';
 import { useDeepCompareCallback, useDeepCompareMemo } from "use-deep-compare";
 import isEqual from 'lodash.isequal';
@@ -49,20 +49,9 @@ export default function HtmlPerfEditor({
     const _sequenceId = element?.dataset?.target;
 
     if (_sequenceId) {
-      // if block graft make this the new context
       addSequenceId(_sequenceId);
-
-      // if inline graft
-      handlers.onInlineGraftClick({
-        sequenceId,
-        htmlPerf,
-        onHtmlPerf,
-        options,
-        components: _components,
-        handlers
-      });
     };
-  }, [addSequenceId, handlers, sequenceId, htmlPerf, onHtmlPerf, options, _components]);
+  }, [addSequenceId]);
 
   const onHtmlSequence = useDeepCompareCallback((_htmlSequence) => {
     const sequenceChanged = htmlSequence !== _htmlSequence;
@@ -88,9 +77,9 @@ export default function HtmlPerfEditor({
     },
     options,
     handlers: {
-      ...handlers,
       onSectionClick,
       onBlockClick,
+      ...handlers,
     },
     decorators: {},
     sectionIndex,
