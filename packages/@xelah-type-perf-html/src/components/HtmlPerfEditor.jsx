@@ -43,14 +43,26 @@ export default function HtmlPerfEditor({
     setSectionIndices(_sectionIndices);
   }, [setSectionIndices, sectionIndices]);
 
+
   // eslint-disable-next-line no-unused-vars
-  const onBlockClick = useCallback(({ content: _content, element }) => {
+  const onBlockClick = useDeepCompareCallback(({ content: _content, element }) => {
     const _sequenceId = element?.dataset?.target;
 
     if (_sequenceId) {
+      // if block graft make this the new context
       addSequenceId(_sequenceId);
+
+      // if inline graft
+      handlers.onInlineGraftClick({
+        sequenceId,
+        htmlPerf,
+        onHtmlPerf,
+        options,
+        components: _components,
+        handlers
+      });
     };
-  }, [addSequenceId]);
+  }, [addSequenceId, handlers, sequenceId, htmlPerf, onHtmlPerf, options, _components]);
 
   const onHtmlSequence = useDeepCompareCallback((_htmlSequence) => {
     const sequenceChanged = htmlSequence !== _htmlSequence;
