@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useMemo } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import PropTypes from 'prop-types';
-import { useDeepCompareCallback, useDeepCompareMemo } from "use-deep-compare";
+import { useDeepCompareMemo } from "use-deep-compare";
 import isEqual from 'lodash.isequal';
 
 import { embedPreviewTextInGrafts, removePreviewTextInGrafts } from "../core/nestPerf";
@@ -45,7 +45,7 @@ export default function HtmlPerfEditor({
 
 
   // eslint-disable-next-line no-unused-vars
-  const onBlockClick = useDeepCompareCallback(({ content: _content, element }) => {
+  const onBlockClick = useCallback(({ content: _content, element }) => {
     const _sequenceId = element?.dataset?.target;
 
     if (_sequenceId) {
