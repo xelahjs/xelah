@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useCallback, useMemo } from "react";
 import PropTypes from 'prop-types';
-import { useDeepCompareMemo } from "use-deep-compare";
+import { useDeepCompareCallback, useDeepCompareMemo } from "use-deep-compare";
 import isEqual from 'lodash.isequal';
 
 import { embedPreviewTextInGrafts, removePreviewTextInGrafts } from "../core/nestPerf";
@@ -42,7 +42,6 @@ export default function HtmlPerfEditor({
     _sectionIndices[sequenceId] = index;
     setSectionIndices(_sectionIndices);
   }, [setSectionIndices, sectionIndices]);
-
 
   // eslint-disable-next-line no-unused-vars
   const onBlockClick = useCallback(({ content: _content, element }) => {
