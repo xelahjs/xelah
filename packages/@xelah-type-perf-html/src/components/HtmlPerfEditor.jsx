@@ -19,7 +19,6 @@ export default function HtmlPerfEditor({
   options,
   components: _components,
   handlers,
-  setFootNote,
   ...props
 }) {
   const [sectionIndices, setSectionIndices] = useState({});
@@ -47,9 +46,11 @@ export default function HtmlPerfEditor({
   // eslint-disable-next-line no-unused-vars
   const onBlockClick = useCallback(({ content: _content, element }) => {
     const _sequenceId = element?.dataset?.target;
-    _sequenceId? setFootNote(_sequenceId) : setFootNote(null);
-  }, [setFootNote]);
-  
+
+    if (_sequenceId) {
+      addSequenceId(_sequenceId);
+    };
+  }, [addSequenceId]);
 
   const onHtmlSequence = useDeepCompareCallback((_htmlSequence) => {
     const sequenceChanged = htmlSequence !== _htmlSequence;
@@ -71,7 +72,7 @@ export default function HtmlPerfEditor({
     components: {
       ...components,
       sectionHeading: (__props) => components.sectionHeading({ type: sequenceType, ...__props }),
-      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, setFootNote, ...__props }),
+      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, ...__props }),
     },
     options,
     handlers: {
@@ -150,4 +151,3 @@ HtmlPerfEditor.propTypes = {
 HtmlPerfEditor.defaultProps = {
   sequenceIds: [],
 };
-
