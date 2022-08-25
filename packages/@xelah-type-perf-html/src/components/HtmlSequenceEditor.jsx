@@ -11,7 +11,6 @@ import sectionParser from '../core/sectionParser';
 import Document from './Document';
 import SectionHeading from './SectionHeading';
 
-const parser = new DOMParser();
 
 const DEFAULT_PROPS = {
   decorators: {
@@ -48,6 +47,7 @@ export default function HtmlSequenceEditor({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const parser = new DOMParser();
   const doc = parser.parseFromString(htmlSequence, 'text/html');
   // parse the full htmlSequence by nodes for rendering
   const nodes = {
