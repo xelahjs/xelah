@@ -1,7 +1,7 @@
 {
   "name": "@xelah/type-perf-html",
   "description": "A React Component Library for simple text editing.",
-  "version": "1.0.0-beta.11",
+  "version": "1.0.0",
   "homepage": "https://xelah-type-perf-html.netlify.app/",
   "license": "MIT",
   "repository": {
@@ -9,7 +9,7 @@
     "url": "https://github.com/xelahjs/xelah.git"
   },
   "dependencies": {
-    "@xelah/core": "^1.0.0-beta.3",
+    "@xelah/core": "^1.0.0",
     "lodash.isequal": "^4.5.0",
     "use-deep-compare": "^1.1.0"
   },
