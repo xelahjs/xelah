@@ -28,6 +28,5 @@
     "react-docgen": "^5.4.3",
     "react-scripts": "^5.0.1",
     "react-styleguidist": "^13.0.0"
-  },
-  "packageManager": "yarn@2.4.3"
+  }
 }
