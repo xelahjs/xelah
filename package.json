@@ -30,7 +30,9 @@
     "eslint-plugin-test-selectors": "^2.0.3",
     "prettier": "^2.5.1",
     "nx": "14.4.3",
-    "@nrwl/nx-cloud": "latest"
+    "@nrwl/nx-cloud": "latest",
+    "react-scripts": "^5.0.1",
+    "react-styleguidist": "^11.2.0"
   },
   "packageManager": "yarn@2.4.3"
 }

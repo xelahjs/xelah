@@ -44,9 +44,7 @@
   },
   "devDependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "^5.0.1",
-    "react-styleguidist": "^11.2.0"
+    "react-dom": "^17.0.2"
   },
   "main": "build/index.js",
   "files": [
