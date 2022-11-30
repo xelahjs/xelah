@@ -11,7 +11,7 @@ import {
   SectionHeading,
 } from '@xelah/type-perf-html';
 
-import __htmlPerf from '../data/tit-fra_fraLSG-perf.html.json';
+import __htmlPerf from '../data/tit-fra_fraLSG-perf.ch1.html.json';
 
 import './HtmlPerfEditor.css';
 

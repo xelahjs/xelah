@@ -21,7 +21,7 @@ import { useState, useEffect } from 'react';
 import {
   mainSequenceId,
   sequencesHtml
-} from '../data/tit-fra_fraLSG-perf.html.json';
+} from '../data/tit-fra_fraLSG-perf.ch1.html.json';
 
 import './HtmlSequenceEditor.css';
 
@@ -80,6 +80,7 @@ function Component () {
     </div>
   );
 
+console.log(sequencesHtml)
   return (
     <div key="1">
       {buttons}
