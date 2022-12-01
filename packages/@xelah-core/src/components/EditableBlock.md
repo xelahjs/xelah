@@ -31,6 +31,7 @@ const decorators = {
 const props = {
   content,
   onContent: setContent,
+  onInput: (ev) => console.log(ev),
   components,
   decorators,
   style,

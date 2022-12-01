@@ -20,6 +20,7 @@ export default function EditableBlock({
   decorators,
   style,
   onClick,
+  onInput,
   components: _components,
   options,
   index,
@@ -32,7 +33,17 @@ export default function EditableBlock({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { if (verbose) console.log('EditableBlock First Render'); }, []);
 
-  const { editIndex, save, ...editableBlockProps } = useEditableBlockProps({ content, onContent, decorators, options });
+  const { 
+    editIndex, 
+    save, 
+    ...editableBlockProps 
+  } = useEditableBlockProps({ 
+    content, 
+    onContent, 
+    onInput, 
+    decorators, 
+    options 
+  });
 
   const blockProps = {
     content,
@@ -71,6 +82,8 @@ EditableBlock.propTypes = {
   decorators: PropTypes.object,
   /** Callback triggered on Block click, provides block text and index. */
   onClick: PropTypes.func,
+  /** Callback triggered on Block input - i.e. Editor has changed content */
+  onInput: PropTypes.func,
   /** css styles for the editable component */
   style: PropTypes.object,
   /** Index to use and reference for rendering */

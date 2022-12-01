@@ -17,6 +17,7 @@ const DEFAULT_PROPS = {
 export default function useEditableBlockProps({
   content,
   onContent,
+  onInput,
   decorators: _decorators,
   options: _options,
 }) {
@@ -67,6 +68,7 @@ export default function useEditableBlockProps({
     suppressContentEditableWarning: true,
     save,
     onBlur,
+    onInput,
   }), [editable, __html, onBlur, editIndex]);
 
   return props;
@@ -77,6 +79,8 @@ useEditableBlockProps.propTypes = {
   content: PropTypes.string.isRequired,
   /** Function triggered on edit */
   onContent: PropTypes.func,
+  /** Function triggered on input */
+  onInput: PropTypes.func,
   /** Options for the editor */
   options: PropTypes.shape({
     /** Editable? */
