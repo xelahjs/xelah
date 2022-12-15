@@ -1,7 +1,7 @@
 {
   "name": "@xelah/type-perf-html",
   "description": "A React Component Library for simple text editing.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://xelah-type-perf-html.netlify.app/",
   "license": "MIT",
   "repository": {
