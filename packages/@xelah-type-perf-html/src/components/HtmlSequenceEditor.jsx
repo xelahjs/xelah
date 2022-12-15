@@ -64,7 +64,6 @@ export default function HtmlSequenceEditor({
   const components = {
     document: (props) => Document({ nodes, verbose, ...props }),
     sectionHeading: SectionHeading,
-    // block: RecursiveBlock,
     ..._components
   };
 
