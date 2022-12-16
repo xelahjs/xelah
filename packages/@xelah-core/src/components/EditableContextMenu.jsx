@@ -7,9 +7,9 @@ const DEFAULT_PROPS = {
     contextMenu: ({ children, handleClose, menuPosition }) => {
       const style = { border: '1px solid gray', borderRadius: '0.2em', padding: '0.25em', background: 'white', position: 'fixed', ...menuPosition };
       return (
-        <div className='contextMenu' style={style} onClose={handleClose}>
+        <dialog className='contextMenu' style={style} onClose={handleClose}>
           {children}
-        </div>
+        </dialog>
       );
     },
     contextMenuItem: ({ action, index, disabled, selection, element, type, subtype }) => {

@@ -27,12 +27,29 @@ export default function RecursiveBlock({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const checkReturnKeyPress = (event) => {
+    if (event.key === "Enter") {
+      let activeTextArea = document.activeElement;
+      if (activeTextArea.children.length > 1) {
+        const lineBreak = activeTextArea.children[1]?.outerHTML;
+        const newLine = lineBreak.replace(/<br\s*\/?>/gi, "&nbsp");
+        activeTextArea.children[1].outerHTML = newLine;
+      }
+    }
+  };
+
   let component;
 
   let editable = !!content.match(/data-type="paragraph"/);
 
   if (editable) {
-    component = <div contentEditable={contentEditable} {...props} />;
+    component = (
+      <div
+        contentEditable={contentEditable}
+        onKeyUp={checkReturnKeyPress}
+        {...props}
+      />
+    );
   }
 
   if (!editable) {
