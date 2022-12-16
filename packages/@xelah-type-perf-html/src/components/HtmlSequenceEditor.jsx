@@ -26,6 +26,7 @@ const DEFAULT_PROPS = {
 export default function HtmlSequenceEditor({
   htmlSequence,
   onHtmlSequence: _onHtmlSequence,
+  onInput,
   options: _options,
   components: _components,
   parsers: _parsers,
@@ -73,11 +74,10 @@ export default function HtmlSequenceEditor({
     _onHtmlSequence(nodes.sequence().outerHTML);
   };
 
-
   const _props = {
     content: nodes.sequence().innerHTML,
     onContent: onHtmlSequence,
-    onInput: (ev) => console.log(ev),
+    onInput,
     options,
     components,
     parsers,
@@ -101,6 +101,8 @@ HtmlSequenceEditor.propTypes = {
   htmlSequence: PropTypes.string.isRequired,
   /** Function triggered on edit */
   onHtmlSequence: PropTypes.func,
+  /** Function triggered on change in the Editor content */
+  onInput: PropTypes.func,
   /** Options for the editor */
   options: PropTypes.shape({
     /** Parse content by sections using sectionParser */

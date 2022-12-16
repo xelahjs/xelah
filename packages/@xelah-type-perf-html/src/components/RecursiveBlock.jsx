@@ -7,6 +7,7 @@ import HtmlPerfEditor from "./HtmlPerfEditor";
 export default function RecursiveBlock({
   htmlPerf,
   onHtmlPerf,
+  onInput,
   sequenceIds,
   addSequenceId,
   options,
@@ -43,6 +44,7 @@ export default function RecursiveBlock({
         addSequenceId,
         htmlPerf,
         onHtmlPerf,
+        onInput,
       };
       component = <HtmlPerfEditor {..._props} />;
     }

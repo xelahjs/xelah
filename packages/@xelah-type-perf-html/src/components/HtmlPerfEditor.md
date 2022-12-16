@@ -59,6 +59,7 @@ function Component () {
     addSequenceId,
     htmlPerf,
     onHtmlPerf,
+    onInput: (ev) => console.log(ev),
     components,
     options,
     handlers,

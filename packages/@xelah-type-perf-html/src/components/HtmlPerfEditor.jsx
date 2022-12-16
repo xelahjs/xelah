@@ -14,6 +14,7 @@ import HtmlSequenceEditor from "./HtmlSequenceEditor";
 export default function HtmlPerfEditor({
   htmlPerf,
   onHtmlPerf,
+  onInput,
   sequenceIds,
   addSequenceId,
   options,
@@ -69,6 +70,7 @@ export default function HtmlPerfEditor({
   const _props = {
     htmlSequence,
     onHtmlSequence,
+    onInput,
     components: {
       ...components,
       sectionHeading: (__props) => components.sectionHeading({ type: sequenceType, ...__props }),
@@ -95,6 +97,8 @@ HtmlPerfEditor.propTypes = {
   htmlPerf: PropTypes.object.isRequired,
   /** Function triggered on edit, returns (htmlPerf, { sequenceId, htmlSequence }) */
   onHtmlPerf: PropTypes.func,
+  /** Function triggered on change in the Editor content */
+  onInput: PropTypes.func,
   /** Options for the editor */
   options: PropTypes.shape({
     /** Parse content by sections using sectionParser */
