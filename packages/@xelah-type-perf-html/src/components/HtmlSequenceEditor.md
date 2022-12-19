@@ -25,7 +25,7 @@ import { useState, useEffect } from 'react';
 import {
   mainSequenceId,
   sequencesHtml
-} from '../data/tit-fra_fraLSG-perf.ch1.html.json';
+} from '../data/tit-fra_fraLSG-perf.html.json';
 
 import './HtmlSequenceEditor.css';
 
@@ -61,6 +61,7 @@ function Component () {
   const props = {
     htmlSequence,
     onHtmlSequence,
+    onInput: (ev) => console.log(ev),
     options: {
       sectionable,
       blockable,

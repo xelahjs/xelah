@@ -3436,7 +3436,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xelah/core@^1.0.2, @xelah/core@workspace:packages/@xelah-core":
+"@xelah/core@^1.0.2-alpha, @xelah/core@workspace:packages/@xelah-core":
   version: 0.0.0-use.local
   resolution: "@xelah/core@workspace:packages/@xelah-core"
   dependencies:
@@ -3466,7 +3466,7 @@ __metadata:
     "@babel/plugin-syntax-logical-assignment-operators": ^7.10.4
     "@babel/preset-env": ^7.17.10
     "@babel/preset-react": ^7.12.10
-    "@xelah/core": ^1.0.2
+    "@xelah/core": ^1.0.2-alpha
     lodash.isequal: ^4.5.0
     react: ^17.0.2
     react-dom: ^17.0.2

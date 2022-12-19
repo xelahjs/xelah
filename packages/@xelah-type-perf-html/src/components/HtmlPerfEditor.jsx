@@ -71,9 +71,7 @@ export default function HtmlPerfEditor({
     onHtmlSequence,
     components: {
       sectionHeading: (__props) => components.sectionHeading({ type: sequenceType, ...__props }),
-      block: (__props) => RecursiveBlock({htmlPerf, onHtmlPerf, sequenceIds, addSequenceId,
-        ...__props,
-      }),
+      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, ...__props }),
       ...components,
     },
     options,
