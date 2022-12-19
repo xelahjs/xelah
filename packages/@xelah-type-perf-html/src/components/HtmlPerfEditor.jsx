@@ -70,9 +70,11 @@ export default function HtmlPerfEditor({
     htmlSequence,
     onHtmlSequence,
     components: {
-      ...components,
       sectionHeading: (__props) => components.sectionHeading({ type: sequenceType, ...__props }),
-      block: (__props) => RecursiveBlock({ htmlPerf, onHtmlPerf, sequenceIds, addSequenceId, ...__props }),
+      block: (__props) => RecursiveBlock({htmlPerf, onHtmlPerf, sequenceIds, addSequenceId,
+        ...__props,
+      }),
+      ...components,
     },
     options,
     handlers: {
@@ -82,7 +84,7 @@ export default function HtmlPerfEditor({
     },
     decorators: {},
     sectionIndex,
-    ...props
+    ...props,
   };
 
   return (
