@@ -56,7 +56,7 @@ export default function EditableBlock({
   };
 
   return (
-    <Block id={editIndex + content} {...blockProps} />
+    <Block key={editIndex + content} {...blockProps} />
   );
 };
 
