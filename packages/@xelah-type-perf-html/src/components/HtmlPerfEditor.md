@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 
 import {
   SectionHeading,
+  Menu,
 } from '@xelah/type-perf-html';
 
 import __htmlPerf from '../data/tit-fra_fraLSG-perf.html.json';
@@ -76,6 +77,7 @@ function Component () {
       <button style={(blockable ? {borderStyle: 'inset'} : {})} onClick={onBlockable}>Blockable</button>
       <button style={(editable ? {borderStyle: 'inset'} : {})} onClick={onEditable}>Editable</button>
       <button style={(preview ? {borderStyle: 'inset'} : {})} onClick={onPreview}>Preview</button>
+      <Menu />
     </div>
   );
 
