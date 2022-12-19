@@ -9,7 +9,7 @@
     "url": "https://github.com/xelahjs/xelah.git"
   },
   "dependencies": {
-    "@xelah/core": "^1.0.1",
+    "@xelah/core": "^1.0.2",
     "lodash.isequal": "^4.5.0",
     "use-deep-compare": "^1.1.0"
   },
@@ -43,14 +43,14 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",
     "@babel/plugin-syntax-logical-assignment-operators": "^7.10.4",
     "@babel/preset-env": "^7.17.10",
-    "@babel/preset-react": "^7.12.10"
+    "@babel/preset-react": "^7.12.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "main": "build/index.js",
   "files": [

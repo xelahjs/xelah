@@ -69,8 +69,7 @@ export default function useEditableBlockProps({
     save,
     onBlur,
     onInput,
-  }), [editable, __html, onBlur, editIndex]);
-
+  }), [editable, __html, onBlur, onInput, editIndex]);
   return props;
 };
 

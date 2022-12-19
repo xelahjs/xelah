@@ -41,7 +41,7 @@ function Component () {
     console.log('htmlPerf changed!', {_htmlPerf});
     setHtmlPerf(_htmlPerf);
   };
-
+  
   const options = { sectionable, blockable, editable, preview, verbose };
 
   const handlers = {
@@ -92,7 +92,6 @@ function Component () {
       {buttons}
       <h2>Main Sequence Editor</h2>
       <HtmlPerfEditor key="1" {...mainProps} />
-      {buttons}
       {graftSequenceId ? graftSequenceEditor : '' }
     </div>
   );

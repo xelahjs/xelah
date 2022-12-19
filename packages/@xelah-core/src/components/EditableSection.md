@@ -33,6 +33,7 @@ const handlers = {
 const props = {
   content,
   onContent: setContent,
+  onInput: (ev) => console.log(ev),
   options: {},
   components,
   handlers,

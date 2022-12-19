@@ -20,7 +20,6 @@ export default function EditableBlock({
   decorators,
   style,
   onClick,
-  onInput,
   components: _components,
   options,
   index,
@@ -40,7 +39,7 @@ export default function EditableBlock({
   } = useEditableBlockProps({ 
     content, 
     onContent, 
-    onInput, 
+    onInput: props?.onInput, 
     decorators, 
     options 
   });
@@ -57,7 +56,7 @@ export default function EditableBlock({
   };
 
   return (
-    <Block key={editIndex + content} {...blockProps} />
+    <Block id={editIndex + content} {...blockProps} />
   );
 };
 

@@ -37,7 +37,6 @@ const headingStyle = {
 export default function EditableSection({
   content,
   onContent,
-  onInput,
   parsers,
   joiners,
   decorators,
@@ -75,7 +74,7 @@ export default function EditableSection({
           components,
           options,
           onContent: (_blockContent) => { onBlockEdit(_blockContent, _index); },
-          onInput,
+          onInput: props?.onInput,
           onClick: (event) => { onBlockClick({ content: blockContent, index: _index, element: event.target }); },
           decorators,
           index: _index,

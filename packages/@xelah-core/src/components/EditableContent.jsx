@@ -39,7 +39,6 @@ const DEFAULT_PROPS = {
 export default function EditableContent({
   content,
   onContent,
-  onInput,
   components: _components,
   parsers,
   joiners,
@@ -80,7 +79,7 @@ export default function EditableContent({
       const sectionProps = {
         content: sectionContent,
         onContent: (_section) => { onSectionEdit(_section, index); },
-        onInput,
+        onInput: props?.onInput,
         show: (!options.sectionable || sectionIndex === -1 || index === sectionIndex),
         onShow: () => { handlers.onSectionClick({ content: sectionContent, index }); },
         index,

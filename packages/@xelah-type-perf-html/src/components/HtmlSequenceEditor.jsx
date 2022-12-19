@@ -26,7 +26,6 @@ const DEFAULT_PROPS = {
 export default function HtmlSequenceEditor({
   htmlSequence,
   onHtmlSequence: _onHtmlSequence,
-  onInput,
   options: _options,
   components: _components,
   parsers: _parsers,
@@ -76,7 +75,6 @@ export default function HtmlSequenceEditor({
   const _props = {
     content: nodes.sequence().innerHTML,
     onContent: onHtmlSequence,
-    onInput,
     options,
     components,
     parsers,
@@ -85,7 +83,7 @@ export default function HtmlSequenceEditor({
     handlers,
     sectionIndex,
     verbose,
-    ...props
+    ...props,
   };
 
   return (
