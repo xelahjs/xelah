@@ -8,8 +8,8 @@ No UI library (such as MaterialUI or TailwindCSS) is required but they are suppo
 
 To see a reference implementation Proof of Concept using MaterialUI see:
 
-- Code: https://codesandbox.io/s/perf-html-editor-vkejn8
-- Demo: https://vkejn8.csb.app/
+- Code: <https://codesandbox.io/s/perf-html-editor-vkejn8>
+- Demo: <https://vkejn8.csb.app/>
 
 ## Example 2 (Tailwind CSS)
 
