@@ -7,8 +7,8 @@ export default function FormatBlock({label, subtype}) {
 
   const [disabled, setDisabled] = useState(false);
   const handleSelectionChangeEvent = useCallback(() => {
-    setDisabled( ! canFormatBlock() );
-  }, []);
+    setDisabled( ! canFormatBlock( { subtype }) );
+  }, [subtype]);
 
   useEffect(() => {
     document.addEventListener("selectionchange", handleSelectionChangeEvent);

@@ -20,7 +20,11 @@ export default function Menu() {
       <button onClick={handleOpen}>Menu</button>
       {open ? (
         <>
-          <FormatBlock label="block quote" subtype="q" />
+          <FormatBlock label="paragraph" subtype="p" />
+          <FormatBlock label="no breake paragraph" subtype="nb" />
+          <FormatBlock label="poetic line level 1" subtype="q1" />
+          <FormatBlock label="poetic line level 2" subtype="q2" />
+          <FormatBlock label="poetic line level 3" subtype="q3" />
           <WrapSelection label="name of deity" tag="nd" />
           <InsertGraft label="Insert cross-reference" type="xref" />
         </>
