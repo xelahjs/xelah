@@ -18,7 +18,6 @@
   content: attr(id)':\0000a0';
   font-weight: 900;
   text-decoration: none;
-  text-decoration: none;
   display: inline-block;
 }
 
@@ -30,8 +29,7 @@
   text-decoration: underline;
 }
 
-.perf .title,
-.perf .introduction {
+.perf .title {
   text-align: center;
 }
 
@@ -44,12 +42,35 @@
   margin: 0.5em 0;
 }
 
-.perf .introduction,
-.perf div[type="introduction"] .paragraph {
-  font-size: 1.5em;
-  margin: 0.5em 0em;
+/*.perf .introduction,*/
+/*.perf div[type="introduction"] .paragraph {*/
+/*  font-size: 1.5em;*/
+/*  margin: 0.5em 0em;*/
+/*}*/
+
+.perf .ip {
+    text-indent: 1em;
 }
 
+.perf .paragraph.ipi {
+    text-indent: 1em;
+    padding-left: 1em;
+}
+
+.perf .paragraph.io, .perf .paragraph.io1, .perf .paragraph.io2 {
+    list-style-type: disc;
+    margin-left: 1em;
+    display: list-item;
+}
+
+.perf .paragraph.io2 {
+    margin-left: 2em;
+}
+
+.perf .iot {
+    font-size: 1.2em;
+    font-weight: bold;
+}
 .perf .heading,
 .perf div[type="heading"] .paragraph {
   font-size: 1.2em;
@@ -103,13 +124,14 @@
 }
 
 .perf .q,
+.perf .q1,
 .perf .q2,
 .perf .q3,
 .perf .q4 {
   font-style: italic;
 }
 
-.perf .q {
+.perf .q, .perf .q1 {
   padding: 0.1em 1em;
 }
 

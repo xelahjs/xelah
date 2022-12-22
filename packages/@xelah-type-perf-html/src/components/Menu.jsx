@@ -9,7 +9,8 @@ import WrapSelection from './menuItems/WrapSelection'
 export default function Menu() {
   const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => {
+  const handleOpen = (event) => {
+    event.preventDefault();
     setOpen(!open);
   };
 
@@ -17,14 +18,23 @@ export default function Menu() {
     <div
       className="Menu"
     >
-      <button onClick={handleOpen}>Menu</button>
+      <button onMouseDown={handleOpen}>Menu</button>
       {open ? (
         <>
-          <FormatBlock label="paragraph" subtype="p" />
-          <FormatBlock label="no breake paragraph" subtype="nb" />
-          <FormatBlock label="poetic line level 1" subtype="q1" />
-          <FormatBlock label="poetic line level 2" subtype="q2" />
-          <FormatBlock label="poetic line level 3" subtype="q3" />
+          <FormatBlock label="\p paragraph" subtype="p" sequence="main" />
+          {/*<FormatBlock label="no break paragraph" subtype="nb" />*/}
+          <FormatBlock label="\q1 poetic line level 1" subtype="q1" sequence="main" />
+          <FormatBlock label="\q2 poetic line level 2" subtype="q2" sequence="main" />
+          <FormatBlock label="\q3 poetic line level 3" subtype="q3" sequence="main" />
+          <FormatBlock label="\imt introduction major title" subtype="imt" sequence="introduction" />
+          <FormatBlock label="\is introduction section heading" subtype="is" sequence="introduction" />
+          <FormatBlock label="\ip introduction paragraph" subtype="ip" sequence="introduction" />
+          <FormatBlock label="\im introduction paragraph no ident" subtype="im" sequence="introduction" />
+          <FormatBlock label="\ipi introduction paragraph with ident" subtype="ipi" sequence="introduction" />
+          <FormatBlock label="\iot introduction outline title" subtype="iot" sequence="introduction" />
+          <FormatBlock label="\io introduction outline level 1" subtype="io" sequence="introduction" />
+          <FormatBlock label="\io2 introduction paragraph level 2" subtype="io2" sequence="introduction" />
+
           <WrapSelection label="name of deity" tag="nd" />
           <InsertGraft label="Insert cross-reference" type="xref" />
         </>

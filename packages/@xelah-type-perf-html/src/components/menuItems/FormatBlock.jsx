@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 import { formatBlock, canFormatBlock } from '../../actions/formatBlock'
 
-export default function FormatBlock({label, subtype}) {
+export default function FormatBlock({label, subtype, sequence}) {
 
-  const [disabled, setDisabled] = useState(false);
+  const [show, setShow] = useState(false);
   const handleSelectionChangeEvent = useCallback(() => {
-    setDisabled( ! canFormatBlock( { subtype }) );
-  }, [subtype]);
+    setShow( canFormatBlock( { sequence }) );
+  }, [sequence]);
 
   useEffect(() => {
     document.addEventListener("selectionchange", handleSelectionChangeEvent);
@@ -19,21 +19,23 @@ export default function FormatBlock({label, subtype}) {
 
   const onClick = (event) => {
     event.preventDefault();
-    formatBlock({ subtype });
+    formatBlock({ subtype, sequence });
   }
   return (
-    <button
-      style={{display:'block'}}
-      className="menuItem"
-      onMouseDown={onClick}
-      disabled={disabled}
-    >
-      {label}
-    </button>
+    show ?
+      <button
+        style={{display:'block'}}
+        className="menuItem"
+        onMouseDown={onClick}
+      >
+        {label}
+      </button>
+      : ''
   )
 }
 
 FormatBlock.propTypes = {
   label: PropTypes.string,
   subtype: PropTypes.string,
+  sequence: PropTypes.string,
 };
