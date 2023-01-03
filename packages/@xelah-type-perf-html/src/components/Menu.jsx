@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import FormatBlock from "./menuItems/FormatBlock"
-import InsertGraft from './menuItems/InsertGraft'
-import WrapSelection from './menuItems/WrapSelection'
 
 export default function Menu() {
   const [open, setOpen] = React.useState(false);
@@ -22,7 +20,6 @@ export default function Menu() {
       {open ? (
         <>
           <FormatBlock label="\p paragraph" subtype="p" sequence="main" />
-          {/*<FormatBlock label="no break paragraph" subtype="nb" />*/}
           <FormatBlock label="\q1 poetic line level 1" subtype="q1" sequence="main" />
           <FormatBlock label="\q2 poetic line level 2" subtype="q2" sequence="main" />
           <FormatBlock label="\q3 poetic line level 3" subtype="q3" sequence="main" />
@@ -34,9 +31,6 @@ export default function Menu() {
           <FormatBlock label="\iot introduction outline title" subtype="iot" sequence="introduction" />
           <FormatBlock label="\io introduction outline level 1" subtype="io" sequence="introduction" />
           <FormatBlock label="\io2 introduction paragraph level 2" subtype="io2" sequence="introduction" />
-
-          <WrapSelection label="name of deity" tag="nd" />
-          <InsertGraft label="Insert cross-reference" type="xref" />
         </>
       ) : null}
     </div>
