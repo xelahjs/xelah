@@ -5,7 +5,7 @@ import { formatBlock, canFormatBlock } from '../../actions/formatBlock'
 
 export default function FormatBlock({label, subtype, sequence}) {
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState( canFormatBlock( { sequence } ) );
   const handleSelectionChangeEvent = useCallback(() => {
     setShow( canFormatBlock( { sequence }) );
   }, [sequence]);
