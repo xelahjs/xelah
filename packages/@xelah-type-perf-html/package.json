@@ -14,7 +14,7 @@
     "use-deep-compare": "^1.1.0"
   },
   "scripts": {
-    "start": "yarn && styleguidist server",
+    "start": "styleguidist server",
     "build-dev": "styleguidist build",
     "build": "babel src --out-dir build && cp ./src/components/*.css ./build/components",
     "test": "react-scripts test",
