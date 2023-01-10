@@ -39,11 +39,15 @@ const handlers = {
   onSectionClick: ({content: _content, index}) => {
     setSectionIndex(index);
   },
+  onBlockClick: ({content, index}) => {
+    console.log(content,index);
+  },
 };
 
 const props = {
   content,
   onContent: setText,
+  onInput: (ev) => console.log(ev),
   options: {
     sectionable,
     blockable,

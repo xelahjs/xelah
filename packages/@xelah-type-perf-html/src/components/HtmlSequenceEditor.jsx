@@ -72,7 +72,6 @@ export default function HtmlSequenceEditor({
     _onHtmlSequence(nodes.sequence().outerHTML);
   };
 
-
   const _props = {
     content: nodes.sequence().innerHTML,
     onContent: onHtmlSequence,
@@ -84,7 +83,7 @@ export default function HtmlSequenceEditor({
     handlers,
     sectionIndex,
     verbose,
-    ...props
+    ...props,
   };
 
   return (
@@ -99,6 +98,8 @@ HtmlSequenceEditor.propTypes = {
   htmlSequence: PropTypes.string.isRequired,
   /** Function triggered on edit */
   onHtmlSequence: PropTypes.func,
+  /** Function triggered on change in the Editor content */
+  onInput: PropTypes.func,
   /** Options for the editor */
   options: PropTypes.shape({
     /** Parse content by sections using sectionParser */

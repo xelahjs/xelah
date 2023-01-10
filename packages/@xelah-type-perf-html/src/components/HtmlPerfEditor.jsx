@@ -82,7 +82,7 @@ export default function HtmlPerfEditor({
     },
     decorators: {},
     sectionIndex,
-    ...props
+    ...props,
   };
 
   return (
@@ -95,6 +95,8 @@ HtmlPerfEditor.propTypes = {
   htmlPerf: PropTypes.object.isRequired,
   /** Function triggered on edit, returns (htmlPerf, { sequenceId, htmlSequence }) */
   onHtmlPerf: PropTypes.func,
+  /** Function triggered on change in the Editor content */
+  onInput: PropTypes.func,
   /** Options for the editor */
   options: PropTypes.shape({
     /** Parse content by sections using sectionParser */

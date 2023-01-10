@@ -74,6 +74,7 @@ export default function EditableSection({
           components,
           options,
           onContent: (_blockContent) => { onBlockEdit(_blockContent, _index); },
+          onInput: props?.onInput,
           onClick: (event) => { onBlockClick({ content: blockContent, index: _index, element: event.target }); },
           decorators,
           index: _index,
@@ -103,6 +104,8 @@ EditableSection.propTypes = {
   content: PropTypes.string.isRequired,
   /** Function triggered on edit */
   onContent: PropTypes.func,
+  /** Function triggered on change in the Editor content */
+  onInput: PropTypes.func,
   /** Options for the editor */
   options: PropTypes.shape({
     /** Parse content by sections using sectionParser */
