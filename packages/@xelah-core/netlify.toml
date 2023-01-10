@@ -1,6 +1,3 @@
-[build.environment]
-  NETLIFY_USE_YARN = "true"
-
 [build]
   base = "packages/@xelah-core"
   publish = "styleguide"

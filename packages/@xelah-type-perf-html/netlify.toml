@@ -1,6 +1,4 @@
-[build.environment]
-  NETLIFY_USE_YARN = "true"
-
 [build]
+  base = "packages/@xelah-type-perf-html"
   publish = "styleguide"
-  command = "yarn nx build-dev @xelah-type-perf-html --skip-nx-cache"
+  command = "yarn nx build-dev --skip-nx-cache"
