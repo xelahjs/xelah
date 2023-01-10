@@ -1,0 +1,4 @@
+[build]
+  base = "packages/@xelah-core"
+  publish = "styleguide"
+  command = "yarn nx build-dev --skip-nx-cache"

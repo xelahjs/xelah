@@ -1,0 +1,4 @@
+[build]
+  base = "./"
+  command = "nx build-dev @xelah/type-perf-html --skip-nx-cache"
+  publish = "packages/@xelah-type-perf-html/styleguide"
