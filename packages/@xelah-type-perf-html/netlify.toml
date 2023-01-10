@@ -1,4 +1,4 @@
 [build]
   base = "/"
   publish = "packages/@xelah-type-perf-html/styleguide"
-  command = "yarn nx build-dev @xelah/type-perf-html --skip-nx-cache"
+  command = "yarn && yarn nx build-dev @xelah/type-perf-html --skip-nx-cache"
