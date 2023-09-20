@@ -1,3 +1,8 @@
+/**
+@module EditorBlock
+@todo deadcode, please remove
+*/
+
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/display-name */
 import React, { useEffect } from 'react';
@@ -14,7 +19,17 @@ const DEFAULT_PROPS = {
   },
 };
 
-export default function EditableBlock({
+export default EditableBlock
+
+/**
+@component
+@description
+A React component for editing any block, for instance a PERF Block.
+
+@todo refine prop types
+@see [PERF blocks]{@link https://doc.proskomma.bible/en/latest/__old/user_model/building_blocks.html#block} 
+*/
+function EditableBlock({
   content,
   onContent,
   decorators,

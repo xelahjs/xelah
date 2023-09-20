@@ -6,6 +6,9 @@
       "packages/*"
     ]
   },
+  "scripts": {
+    "docs": "jsdoc -c ./jsdoc.json"
+  },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.10",
@@ -15,6 +18,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "babel-loader": "^8.2.2",
+    "better-docs": "^2.7.2",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-import": "^2.26.0",
@@ -23,7 +27,9 @@
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-test-selectors": "^2.0.3",
+    "jsdoc": "3.6.11",
     "nx": "14.4.3",
+    "parcel": "^2.9.3",
     "prettier": "^2.5.1",
     "react-docgen": "^5.4.3",
     "react-scripts": "^5.0.1",
