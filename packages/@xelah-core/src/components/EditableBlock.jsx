@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import useEditableBlockProps from '../hooks/useEditableBlockProps';
-import EditableContextMenu from './EditableContextMenu';
 
 const DEFAULT_PROPS = {
   ...useEditableBlockProps.defaultProps,
