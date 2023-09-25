@@ -1,7 +1,4 @@
-/**
-@module EditorBlock
-@todo deadcode, please remove
-*/
+/** @module EditableBlock */
 
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/display-name */
@@ -22,14 +19,105 @@ const DEFAULT_PROPS = {
 export default EditableBlock
 
 /**
-@component
+@global
+@callback DangerousHtml
+@return {string}
+*/
+
+/**
+@global
+@callback OnContent
+@param {string} the inner html of the passed in block component
+@see {@link BlockComponent}
+*/
+
+/**
+@global
+@callback OnBlur
+@param {Event} event
+*/
+
+/**
+@global
+@callback OnInput
+*/
+
+/**
+@global
+@callback Save
+@param {Element}
+*/
+
+/**
+@global
+@callback OnClick
+*/
+
+/**
+@global
+@callback BlockComponent
+
+@description 
+A BlockComponent is any component that can be passed the below
+parameters. This component is internally called by {@link
+EditableComponent}.
+
+@param {string} key 
+EditableBlock internally constructs this as `` `${editIndex}${content}` ``
+where `editIndex` is a stateful natural number incremented everytime
+prop.onBlur is called.
+
+@param prop The set of props passed in to BlockComponent. 
+@param {string} prop.content threaded from {@link module:EditableBlock.EditableBlock}
+@param {object} prop.style threaded from {@link module:EditableBlock.EditableBlock}
+@param {OnClick} prop.onClick threaded from {@link module:EditableBlock.EditableBlock}
+@param {number} prop.index threaded from {@link module:EditableBlock.EditableBlock}
+@param {boolean} prop.verbose threaded from {@link module:EditableBlock.EditableBlock}
+@param {Options} prop.options threaded from {@link module:EditableBlock.EditableBlock}
+@param {boolean} prop.contentEditable 
+@param {object} prop.dangerouslySetInnerHTML 
+@param {DangerousHtml} prop.dangerouslySetInnerHTML.__html
+@param {boolean} prop.suppressContentEditableWarning
+@param {OnBlur} prop.onBlur 
+@param {OnInput} prop.onInput
+@param {any[]} prop.props
+
+@return {JSX}
+*/
+
+/**
+@global
+@typedef {object} Options
+@property {boolean} editable Editable?
+@property {boolean} returnHtml Return html instead of text 
+*/
+
+/**
 @description
 A React component for editing any block, for instance a PERF Block.
 
-@todo refine prop types
+@function
+
+@param {Object} prop
+@param {string} prop.content Text to be edited whether file, section or block
+@param {OnContent} prop.onContent  Function triggered on edit 
+@param {Options} prop.options Options for the editor
+@param {object} prop.components Components to wrap all sections of the document 
+@param {BlockComponent} prop.components.block Component to be the block editor 
+@param {object} prop.decorators Object of replacers for html/css decoration of text 
+@param {OnClick} prop.onClick Callback triggered on Block click, provides block text and index. 
+@param {OnInput} prop.onInput Callback triggered on Block input - i.e. Editor has changed content 
+@param {object} prop.style css styles for the editable component 
+@param {number} prop.index Index to use and reference for rendering 
+@param {boolean} prop.verbose Flag to enable logging
+@param {any[]} prop.props extra props
+
+@return {JSX}
+
+@todo remove use of defaultProps and use default function parameters
 @see [PERF blocks]{@link https://doc.proskomma.bible/en/latest/__old/user_model/building_blocks.html#block} 
 */
-function EditableBlock({
+export const EditableBlock = ({
   content,
   onContent,
   decorators,
@@ -40,7 +128,7 @@ function EditableBlock({
   index,
   verbose = false,
   ...props
-}) {
+}) => {
   const components = { ...DEFAULT_PROPS.components, ..._components };
   const { block: Block } = components || {};
 
@@ -75,6 +163,9 @@ function EditableBlock({
   );
 };
 
+/**
+@ignore
+*/
 EditableBlock.propTypes = {
   /** Text to be edited whether file, section or block */
   content: PropTypes.string.isRequired,
@@ -82,14 +173,14 @@ EditableBlock.propTypes = {
   onContent: PropTypes.func,
   /** Options for the editor */
   options: PropTypes.shape({
-    /** Editable? */
+    /** @ignore Editable? */
     editable: PropTypes.bool,
-    /** Return html instead of text */
+    /** @ignore Return html instead of text */
     returnHtml: PropTypes.bool,
   }),
   /** Components to wrap all sections of the document */
   components: PropTypes.shape({
-    /** Component to be the block editor */
+    /** @ignore Component to be the block editor */
     block: PropTypes.func,
   }),
   /** Object of replacers for html/css decoration of text */
