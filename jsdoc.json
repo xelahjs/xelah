@@ -1,12 +1,11 @@
 {
   "opts": {
     "recurse": true,
-    "destination": "./docs",
-    "template": "node_modules/better-docs"
+    "destination": "./docs"
   },
   "tags": {
     "allowUnknownTags": true,
-    "dictionaries": ["jsdoc", "closure"]
+    "dictionaries": ["jsdoc"]
   },
   "source": {
     "include": [
@@ -14,7 +13,7 @@
       "./packages/@xelah-type-perf-html/src"
     ]
   },
-  "plugins": ["plugins/markdown", "node_modules/better-docs/component"],
+  "plugins": ["plugins/markdown" ],
   "templates": {
     "better-docs": {
       "name": "Xelah"
