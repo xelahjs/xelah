@@ -16,6 +16,7 @@ const DEFAULT_PROPS = {
   },
 };
 
+//This should be moved after the definition of EditableBlock
 export default EditableBlock
 
 /**
@@ -67,6 +68,7 @@ EditableBlock internally constructs this as `` `${editIndex}${content}` ``
 where `editIndex` is a stateful natural number incremented everytime
 prop.onBlur is called.
 
+// Change the name of this param to its plural form "props".
 @param prop The set of props passed in to BlockComponent. 
 @param {string} prop.content threaded from {@link module:EditableBlock.EditableBlock}
 @param {object} prop.style threaded from {@link module:EditableBlock.EditableBlock}
